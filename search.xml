@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[GtiHub+Hexo搭建个人博客]]></title>
+    <url>%2FGtiHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[这是引用 1,注册GitHub，创建仓库，仓库名：你的GitHub用户名.github.io(必须这种格式) 2,在官网下载，安装git。我们的网站本地搭建好需要用git同步到GitHub上。开始菜单里打开Git here bash，配置信息： git config --global user.name &quot;你的GitHub用户名&quot; (Enter执行) git config --global user.email &quot;你的GitHub注册邮箱&quot; (Enter执行) 本地生成ssh密钥文件（连接Github需要）：1ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot; 然后三个回车，默认不设置密码。 3,然后在.ssh文件夹中用Notepad++ 打开id_rsa.pub密钥，将内容全部复制在GitHub个人下点settings,打开SSH and GPR keys项，新建 new SSH Key：标题随便写，将密钥复制到key新建。 4,在Git Bash中检测公钥是否可用，输入: ssh git@github.com 如果显示成功，这就完成了Git与GitHub绑定 5,安装Node.jsHexo是基于Node.js的,Node.js包含环境变量及npm的安装。 6,安装HexoHexo是博客网站框架。利用npm命令全局安装：npm install -g hexo在电脑上创建一个文件夹，命名myblog，然后鼠标右键文件夹 Git Bash Her安装完后 初始化博客：hexo init安装依赖包： npm install初始化完 检测运行一下：hexo g # 生成(g是generate缩写)hexo s然后再浏览器中打开localhost:4000,就可以打开博客首页 常用的Hexo命令：npm install hexo -g #全局安装Hexonpm update hexo -s #升级hexo init #初始化博客 命令简写：hexo n “文章名” == hexo new “文章名” #新建文章hexo g == hexo generate #生成hexo s == hexo server #启用服务预览hexo d ==hexo deploy #部署本地网页到GitHub hexo server #Hexo会监视文件改变并自动更新，，无需重启服务hexo server -s #静态模式hexo server -p 5000 #改变端口1$ hexo server hexo server -i 192.168.0.1 #自定义IPhexo clean #清楚缓存 7,把Hexo与GitHub关联起来，打开站点配置文件myblog/_config.yml,翻到最后修改为：deploy: type: git #注意空格 ropo: git@github.com:你的GitHub用户名/你的GitHub用户名.github.io.git branch: master保存站点配置文件 安装Git部署插件：npm install hexo-deployer-git –save完成后执行：hexo cleanhexo ghexo d这样你的网站被部署在GitHub上了，可以网络访问 你的GitHub用户名.github.io 修改文章内链接样式修改文件 themes\next\source\css_common\components\post\post.styl，在末尾添加如下css样式，： // 文章内链接文本样式.post-body p a{ color: #0593d3; border-bottom: none; border-bottom: 1px solid #0593d3; &amp;:hover { color: #fc6423; border-bottom: none; border-bottom: 1px solid #fc6423; }} 文章添加分类定位到站点目录下: hexo new page categories编辑刚新建的页面，将页面的 type 设置为 categories ，主题将自动为这个页面显示分类。页面内容如下：title: 分类date: 2014-12-22 12:39:04 type: “categories”在菜单中添加链接。编辑 主题配置文件 ， 添加 categories 到 menu 中，如下:menu: home: / archives: /archives categories: /categories 添加标签在终端窗口下，定位到 Hexo 站点目录下。使用 hexo new page 新建一个页面，命名为 tags ：$ cd your-hexo-site$ hexo new page tags编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。页面内容如下：title: 标签date: 2014-12-22 12:39:04 type: “tags”在菜单中添加链接。编辑 主题配置文件 ， 添加 tags 到 menu 中，如下:menu: home: / archives: /archives tags: /tags 百度谷歌收录你的站点 12$ npm install hexo-generator-sitemap --save #googlenpm install hexo-generator-baidu-sitemap --save #百度 添加本地搜索 1$ npm install hexo-generator-searchdb --save 站点配置文件，任意位置新增： 12345search: path: search.xml filed: post format: html limit: 10000 编辑主题配置文件，启用搜索: local_serach: enable: true]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>GitGub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[构造函数使用]]></title>
+    <url>%2F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：1234public class MyClass&#123; //..&#125; 它的构造方法就是：1234public Myclass()&#123; //..&#125; 当我们实例化的时候，其实调用了构造方法。 可以在构造方法上写注释，new时看注释就知道了。12345678910111213///&lt;summary&gt;///这是类///&lt;/summary&gt;public class Program&#123; ///&lt;summary&gt; ///这是构造方法 ///&lt;/summary&gt; public Program() &#123; //.. &#125;&#125; 通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值 举个例子，如下实体：123456789101112public class User&#123; public string FirstName &#123;get;set;&#125; public string LastName &#123;get;set;&#125; public ShowName() &#123; var user=new User(); user.FirstName="张"; user.LastName="三"; user.ShowName(); //输出 张三 &#125;&#125; 如果少写一个的话：123456static void Main(string[] args)&#123; var user=new User(); user.LastName="三"; user.ShowName(); // 输出 三&#125; 这就引起不是我们想要的 因此构造方法这样就可以避免了:1234567891011121314public class User&#123; public User(string firstName,string lastName) &#123; this.FirstName=firstName; tshi.LastName=lastName; &#125; public string FirstName &#123;get; private set;&#125; public string LastName &#123;get; private set;&#125; public string ShowName() &#123; return FirstName+LastName; &#125;&#125; 这里加入了两个参数，姓和名。因此实例化这个对象时必须传入这两个参数。12var user=new User("张","三");user.ShowName(); //输出 张三 注意：set访问修饰符设置成pbulic属性可以被外面赋值,调用时就会有问题：1234var user=new User("张","三");user.FirstName="李";user.LastName="四";user.ShowName();//输出 李四 本文转载自 http://dotnetstar.club/c/35]]></content>
+      <tags>
+        <tag>C#</tag>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[框架与架构设计]]></title>
+    <url>%2F%E6%A1%86%E6%9E%B6%E4%B8%8E%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%2F</url>
+    <content type="text"><![CDATA[test架构：软件体系结构通常称为架构 框架与架构共同点：提高生产效率为了解决问题都是体系化的产物·····不同点：框架是总体规划，协调单元完成工作框架是具体实施内容]]></content>
+      <tags>
+        <tag>基础</tag>
+        <tag>架构</tag>
+      </tags>
+  </entry>
+</search>
