@@ -415,6 +415,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/GtiHub-Hexo搭建个人博客/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/GtiHub-Hexo搭建个人博客/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -578,6 +588,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/hello-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -740,6 +760,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/构造函数使用/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/构造函数使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -766,9 +796,11 @@
       
         
           
-          任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：1234public class MyClass&#123;   //..&#125;
-它的构造方法就是：1234public Myclass()&#123;   //..&#125;
+          任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：public class MyClass&#123;   //..&#125;
+它的构造方法就是：public Myclass()&#123;   //..&#125;
 当我们实例化的时候，其实调用了构造方法。
+
+可以在构造方
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -903,6 +935,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/框架与架构设计/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/框架与架构设计/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1288,6 +1330,30 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GS7w6wHpIlUUdtgSv7vbLtje-gzGzoHsz',
+        appKey: 'oovtVHB6vOE9fkHMy34s01ly',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

@@ -108,19 +108,19 @@
 
 
 
-  <meta name="description" content="任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：1234public class MyClass&amp;#123;   //..&amp;#125; 它的构造方法就是：1234public Myclass()&amp;#123;   //..&amp;#125; 当我们实例化的时候，其实调用了构造方法。  可以在构造方法上写注释，new时看注释就知道了。12345678910111213///&amp;lt;">
-<meta name="keywords" content="C#,基础">
+  <meta name="description" content="任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：public class MyClass&amp;#123;   //..&amp;#125; 它的构造方法就是：public Myclass()&amp;#123;   //..&amp;#125; 当我们实例化的时候，其实调用了构造方法。  可以在构造方法上写注释，new时看注释就知道了。///&amp;lt;summary&amp;gt;///这是类///&amp;lt;/">
+<meta name="keywords" content="基础,C#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构造函数使用">
 <meta property="og:url" content="http://yoursite.com/构造函数使用/index.html">
 <meta property="og:site_name" content="MrF">
-<meta property="og:description" content="任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：1234public class MyClass&amp;#123;   //..&amp;#125; 它的构造方法就是：1234public Myclass()&amp;#123;   //..&amp;#125; 当我们实例化的时候，其实调用了构造方法。  可以在构造方法上写注释，new时看注释就知道了。12345678910111213///&amp;lt;">
+<meta property="og:description" content="任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：public class MyClass&amp;#123;   //..&amp;#125; 它的构造方法就是：public Myclass()&amp;#123;   //..&amp;#125; 当我们实例化的时候，其实调用了构造方法。  可以在构造方法上写注释，new时看注释就知道了。///&amp;lt;summary&amp;gt;///这是类///&amp;lt;/">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i2.bvimg.com/651040/9c4b5bb6fcc545ea.png">
 <meta property="og:updated_time" content="2018-07-13T01:31:27.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构造函数使用">
-<meta name="twitter:description" content="任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：1234public class MyClass&amp;#123;   //..&amp;#125; 它的构造方法就是：1234public Myclass()&amp;#123;   //..&amp;#125; 当我们实例化的时候，其实调用了构造方法。  可以在构造方法上写注释，new时看注释就知道了。12345678910111213///&amp;lt;">
+<meta name="twitter:description" content="任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：public class MyClass&amp;#123;   //..&amp;#125; 它的构造方法就是：public Myclass()&amp;#123;   //..&amp;#125; 当我们实例化的时候，其实调用了构造方法。  可以在构造方法上写注释，new时看注释就知道了。///&amp;lt;summary&amp;gt;///这是类///&amp;lt;/">
 <meta name="twitter:image" content="http://i2.bvimg.com/651040/9c4b5bb6fcc545ea.png">
 
 
@@ -410,6 +410,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/构造函数使用/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/构造函数使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -434,26 +444,26 @@
       
 
       
-        <p>任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class MyClass</span><br><span class="line">&#123;</span><br><span class="line">   //..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>它的构造方法就是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public Myclass()</span><br><span class="line">&#123;</span><br><span class="line">   //..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class MyClass</span><br><span class="line">&#123;</span><br><span class="line">   //..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>它的构造方法就是：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public Myclass()</span><br><span class="line">&#123;</span><br><span class="line">   //..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>当我们实例化的时候，其实调用了构造方法。</p>
 <blockquote>
-<p>可以在构造方法上写注释，new时看注释就知道了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">///&lt;summary&gt;</span><br><span class="line">///这是类</span><br><span class="line">///&lt;/summary&gt;</span><br><span class="line">public class Program</span><br><span class="line">&#123;</span><br><span class="line"> ///&lt;summary&gt;</span><br><span class="line"> ///这是构造方法</span><br><span class="line"> ///&lt;/summary&gt;</span><br><span class="line"> public Program()</span><br><span class="line"> &#123;</span><br><span class="line">   //..</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以在构造方法上写注释，new时看注释就知道了。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">///&lt;summary&gt;</span><br><span class="line">///这是类</span><br><span class="line">///&lt;/summary&gt;</span><br><span class="line">public class Program</span><br><span class="line">&#123;</span><br><span class="line"> ///&lt;summary&gt;</span><br><span class="line"> ///这是构造方法</span><br><span class="line"> ///&lt;/summary&gt;</span><br><span class="line"> public Program()</span><br><span class="line"> &#123;</span><br><span class="line">   //..</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p><img src="http://i2.bvimg.com/651040/9c4b5bb6fcc545ea.png"></p>
 <hr>
 <h1 id="通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值"><a href="#通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值" class="headerlink" title="通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值"></a>通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值</h1><blockquote>
-<p>举个例子，如下实体：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class User</span><br><span class="line">&#123;</span><br><span class="line">  public string FirstName &#123;get;<span class="built_in">set</span>;&#125;</span><br><span class="line">  public string LastName &#123;get;<span class="built_in">set</span>;&#125;</span><br><span class="line">  public ShowName()</span><br><span class="line">   &#123;</span><br><span class="line">     var user=new User();</span><br><span class="line">     user.FirstName=<span class="string">"张"</span>;</span><br><span class="line">     user.LastName=<span class="string">"三"</span>;</span><br><span class="line">     user.ShowName(); //输出 张三</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>举个例子，如下实体：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class User</span><br><span class="line">&#123;</span><br><span class="line">  public string FirstName &#123;get;<span class="built_in">set</span>;&#125;</span><br><span class="line">  public string LastName &#123;get;<span class="built_in">set</span>;&#125;</span><br><span class="line">  public ShowName()</span><br><span class="line">   &#123;</span><br><span class="line">     var user=new User();</span><br><span class="line">     user.FirstName=<span class="string">"张"</span>;</span><br><span class="line">     user.LastName=<span class="string">"三"</span>;</span><br><span class="line">     user.ShowName(); //输出 张三</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>如果少写一个的话：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">  var user=new User();</span><br><span class="line">  user.LastName=<span class="string">"三"</span>;</span><br><span class="line">  user.ShowName(); // 输出 三</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果少写一个的话：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">&#123;</span><br><span class="line">  var user=new User();</span><br><span class="line">  user.LastName=<span class="string">"三"</span>;</span><br><span class="line">  user.ShowName(); // 输出 三</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>这就引起不是我们想要的</p>
 <blockquote>
-<p>因此构造方法这样就可以避免了:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class User</span><br><span class="line">&#123;</span><br><span class="line">   public User(string firstName,string lastName)</span><br><span class="line">   &#123;</span><br><span class="line">        this.FirstName=firstName;</span><br><span class="line">        tshi.LastName=lastName;</span><br><span class="line">   &#125;</span><br><span class="line">   public string FirstName &#123;get; private <span class="built_in">set</span>;&#125;</span><br><span class="line">   public string LastName &#123;get; private <span class="built_in">set</span>;&#125;</span><br><span class="line">   public string ShowName()</span><br><span class="line">   &#123;</span><br><span class="line">        <span class="built_in">return</span> FirstName+LastName;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因此构造方法这样就可以避免了:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class User</span><br><span class="line">&#123;</span><br><span class="line">   public User(string firstName,string lastName)</span><br><span class="line">   &#123;</span><br><span class="line">        this.FirstName=firstName;</span><br><span class="line">        tshi.LastName=lastName;</span><br><span class="line">   &#125;</span><br><span class="line">   public string FirstName &#123;get; private <span class="built_in">set</span>;&#125;</span><br><span class="line">   public string LastName &#123;get; private <span class="built_in">set</span>;&#125;</span><br><span class="line">   public string ShowName()</span><br><span class="line">   &#123;</span><br><span class="line">        <span class="built_in">return</span> FirstName+LastName;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>这里加入了两个参数，姓和名。因此实例化这个对象时必须传入这两个参数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var user=new User(<span class="string">"张"</span>,<span class="string">"三"</span>);</span><br><span class="line">user.ShowName(); //输出 张三</span><br></pre></td></tr></table></figure></p>
-<p><font color="red">注意：set访问修饰符设置成<code>pbulic</code>属性可以被外面赋值,调用时就会有问题：</font><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var user=new User(<span class="string">"张"</span>,<span class="string">"三"</span>);</span><br><span class="line">user.FirstName=<span class="string">"李"</span>;</span><br><span class="line">user.LastName=<span class="string">"四"</span>;</span><br><span class="line">user.ShowName();//输出 李四</span><br></pre></td></tr></table></figure></p>
+<p>这里加入了两个参数，姓和名。因此实例化这个对象时必须传入这两个参数。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var user=new User(<span class="string">"张"</span>,<span class="string">"三"</span>);</span><br><span class="line">user.ShowName(); //输出 张三</span><br></pre></td></tr></table></figure></p>
+<p><font color="red">注意：set访问修饰符设置成<code>pbulic</code>属性可以被外面赋值,调用时就会有问题：</font><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var user=new User(<span class="string">"张"</span>,<span class="string">"三"</span>);</span><br><span class="line">user.FirstName=<span class="string">"李"</span>;</span><br><span class="line">user.LastName=<span class="string">"四"</span>;</span><br><span class="line">user.ShowName();//输出 李四</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>本文转载自 <a href="http://dotnetstar.club/c/35" target="_blank" rel="noopener">http://dotnetstar.club/c/35</a></p>
 </blockquote>
@@ -487,9 +497,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"> <i class="fa fa-tag"></i> C#</a>
-          
             <a href="/tags/基础/" rel="tag"> <i class="fa fa-tag"></i> 基础</a>
+          
+            <a href="/tags/C/" rel="tag"> <i class="fa fa-tag"></i> C#</a>
           
         </div>
       
@@ -888,6 +898,30 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GS7w6wHpIlUUdtgSv7vbLtje-gzGzoHsz',
+        appKey: 'oovtVHB6vOE9fkHMy34s01ly',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
