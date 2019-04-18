@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="自学C#">
-<meta name="keywords" content="C# .Net Core .Net Mvc">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MrF">
-<meta property="og:url" content="https://neoz.top/archives/2018/06/index.html">
+  <meta name="description" content="#Startup类 #Program里面的CreateWebHostBuilder方法默认使用Startup类。Startup：  可选择性的包含ConfigureServices方法以及配置应用服务 必须包含Configure方法以创建应用的请求处理管道,常见中间件管道顺序： 1.异常/错误处理 2.HTTP严格传输安全协议 3.HTTPS重定向 4.静态文件服务器 5.Cookie策略实施 6">
+<meta name="keywords" content="Asp.Net Core">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Asp.Net Core中的配置和服务注入">
+<meta property="og:url" content="https://neoz.top/Asp.Net Core中的配置和服务注入/index.html">
 <meta property="og:site_name" content="MrF">
-<meta property="og:description" content="自学C#">
+<meta property="og:description" content="#Startup类 #Program里面的CreateWebHostBuilder方法默认使用Startup类。Startup：  可选择性的包含ConfigureServices方法以及配置应用服务 必须包含Configure方法以创建应用的请求处理管道,常见中间件管道顺序： 1.异常/错误处理 2.HTTP严格传输安全协议 3.HTTPS重定向 4.静态文件服务器 5.Cookie策略实施 6">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-18T11:14:47.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MrF">
-<meta name="twitter:description" content="自学C#">
+<meta name="twitter:title" content="Asp.Net Core中的配置和服务注入">
+<meta name="twitter:description" content="#Startup类 #Program里面的CreateWebHostBuilder方法默认使用Startup类。Startup：  可选择性的包含ConfigureServices方法以及配置应用服务 必须包含Configure方法以创建应用的请求处理管道,常见中间件管道顺序： 1.异常/错误处理 2.HTTP严格传输安全协议 3.HTTPS重定向 4.静态文件服务器 5.Cookie策略实施 6">
 
 
 
 
 
 
-  <link rel="canonical" href="https://neoz.top/archives/2018/06/"/>
+  <link rel="canonical" href="https://neoz.top/Asp.Net Core中的配置和服务注入/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>归档 | MrF</title>
+  <title>Asp.Net Core中的配置和服务注入 | MrF</title>
   
 
 
@@ -182,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -255,7 +256,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
@@ -319,143 +320,235 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 5 篇日志。 继续努力。
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://neoz.top/Asp.Net Core中的配置和服务注入/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MrF">
+      <meta itemprop="description" content="自学C#">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MrF">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/构造函数使用/" itemprop="url">
-              
-                <span itemprop="name">构造函数使用</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Asp.Net Core中的配置和服务注入
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-27T16:44:10+08:00"
-              content="2018-06-27" >
-          06-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
 
+              
+                
+              
+
+              <time title="创建时间：2019-04-18 14:51:22 / 修改时间：19:14:47" itemprop="dateCreated datePublished" datetime="2019-04-18T14:51:22+08:00">2019-04-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Asp.Net Core中的配置和服务注入/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/Asp.Net Core中的配置和服务注入/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/框架与架构设计/" itemprop="url">
-              
-                <span itemprop="name">框架与架构设计</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-27T16:26:08+08:00"
-              content="2018-06-27" >
-          06-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>#Startup类 #<br><code>Program</code>里面的<code>CreateWebHostBuilder</code>方法默认使用<code>Startup</code>类。<br><code>Startup</code>：</p>
+<ul>
+<li>可选择性的包含<code>ConfigureServices</code>方法以及配置应用服务</li>
+<li>必须包含<code>Configure</code>方法以创建应用的请求处理管道,常见中间件管道顺序：<br> 1.异常/错误处理<br> 2.HTTP严格传输安全协议<br> 3.HTTPS重定向<br> 4.静态文件服务器<br> 5.Cookie策略实施<br> 6.身份验证<br> 7.会话<br> 8.MVC<ul>
+<li>Configure方法使用<code>IApplicationBuilder</code>来使用中间件 *<br>有Use，Map，Run三种使用方式：<ul>
+<li>Use使用中间件配置请求管道</li>
+<li>Map管道分支</li>
+<li>Run管道短路</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>Configure方法里注入IConfiguration接口，读取 appsettings.json配置<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void Configure(IApplicationBuilder app,IHostingEnvironment env,IConfiguration configuration)</span><br><span class="line">&#123;</span><br><span class="line">  if(env.IsDevelopment())</span><br><span class="line">  &#123;</span><br><span class="line">  	app.UseDevelopmerExceptionPage();</span><br><span class="line">  &#125;</span><br><span class="line">  app.Run(async(context)=&gt;</span><br><span class="line">    &#123;</span><br><span class="line">    	//appsettings.json里面添加的key是Welcome,值为Hello World！</span><br><span class="line">      var welcome=configuration[&quot;Welcome&quot;];</span><br><span class="line">      await context.Response.WriteAsync(welcome);</span><br><span class="line">  	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>运行结果：Hello World！</p>
+</blockquote>
+<hr>
+<h1 id="ConfigureServices配置应用服务"><a href="#ConfigureServices配置应用服务" class="headerlink" title="ConfigureServices配置应用服务"></a>ConfigureServices配置应用服务</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void ConfigureServices(IServiceCollection services)</span><br><span class="line">&#123;</span><br><span class="line">	//服务注入             &lt;接口，实现接口的类&gt;</span><br><span class="line">	services.AddSingleton&lt;IWelcomeService,WelcomeService&gt;();</span><br><span class="line">	//AddSingleton只能有WelcomeService实例</span><br><span class="line">	//AddTransient每请求一次方法就创建一个实例</span><br><span class="line">	//AddScoped 整个HTTP请求只创建一个实例</span><br><span class="line">&#125;</span><br><span class="line">public void Configure(IApplicationBUilder app,IHostingEnvironment env,IWelcomeService welcomeService)</span><br><span class="line">&#123;</span><br><span class="line">	if(env.IsDevelopment())</span><br><span class="line">	&#123;</span><br><span class="line">		app.UseDeveloperExceptionPage();</span><br><span class="line">	&#125;</span><br><span class="line">	app.Run(async(context)=&gt;</span><br><span class="line">	&#123;</span><br><span class="line">		//调用GetMessage方法</span><br><span class="line">      var welcome=welcomeService.GetMessage();</span><br><span class="line">      await context.Response.WriteAsync(welcome);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="IWlcomeService接口及实现"><a href="#IWlcomeService接口及实现" class="headerlink" title="IWlcomeService接口及实现"></a>IWlcomeService接口及实现</h3><pre><code>public interface IWelcomeService
+{
+    string GetMessage();
+}
+public class WelcomeService:IWelcomeService
+{
+    public string GetMessage()
+    {
+        return &quot;Hello from IWelcome service!&quot;;
+    }
+}
+</code></pre><blockquote>
+<p>运行结果:Hello from IWelcome service!</p>
+</blockquote>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+     
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+     
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Asp-Net-Core/" rel="tag"> <i class="fa fa-tag"></i> Asp.Net Core</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/GtiHub-Hexo搭建个人博客/" rel="next" title="GtiHub+Hexo搭建个人博客">
+                <i class="fa fa-chevron-left"></i> GtiHub+Hexo搭建个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -476,8 +569,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -583,6 +685,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ConfigureServices配置应用服务"><span class="nav-number">1.</span> <span class="nav-text">ConfigureServices配置应用服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IWlcomeService接口及实现"><span class="nav-number">1.0.1.</span> <span class="nav-text">IWlcomeService接口及实现</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -729,6 +847,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
