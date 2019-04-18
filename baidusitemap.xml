@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://neoz.top/Asp.Net%20Core%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%85%A5/</loc>
-    <lastmod>2019-04-18T11:14:47.439Z</lastmod>
+    <lastmod>2019-04-18T11:26:04.621Z</lastmod>
     <data>
         <display>
         <title>Asp.Net Core中的配置和服务注入</title>
@@ -15,6 +15,9 @@
          
          
            
+             
+              <breadCrumb title="Web" url="https://neoz.top/categories/Web/"/>
+          
         </display>
     </data>
     </url>
