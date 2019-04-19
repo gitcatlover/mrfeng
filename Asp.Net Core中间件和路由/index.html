@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="C# .Net Core .Net Mvc">
+  <meta name="description" content="注入日志中间件public void Configure(IApplicationBuilder app,IHostingEnvironment env,IWelcomeService welcomeService,ILogger&amp;lt;Startup&amp;gt; logger) {   //Use在启动配置的时候走了一遍，只运行一次   app.Use(next=&amp;gt;   {    logger">
+<meta name="keywords" content="Asp.Net Core">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://neoz.top/hello-world/index.html">
-<meta property="og:site_name" content="MrF">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:title" content="Asp.Net Core中间件和路由">
+<meta property="og:url" content="https://neoz.top/Asp.Net Core中间件和路由/index.html">
+<meta property="og:site_name" content="Neoz">
+<meta property="og:description" content="注入日志中间件public void Configure(IApplicationBuilder app,IHostingEnvironment env,IWelcomeService welcomeService,ILogger&amp;lt;Startup&amp;gt; logger) {   //Use在启动配置的时候走了一遍，只运行一次   app.Use(next=&amp;gt;   {    logger">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-27T14:26:22.000Z">
+<meta property="og:updated_time" content="2019-04-19T16:27:46.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Asp.Net Core中间件和路由">
+<meta name="twitter:description" content="注入日志中间件public void Configure(IApplicationBuilder app,IHostingEnvironment env,IWelcomeService welcomeService,ILogger&amp;lt;Startup&amp;gt; logger) {   //Use在启动配置的时候走了一遍，只运行一次   app.Use(next=&amp;gt;   {    logger">
 
 
 
 
 
 
-  <link rel="canonical" href="https://neoz.top/hello-world/"/>
+  <link rel="canonical" href="https://neoz.top/Asp.Net Core中间件和路由/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>Hello World | MrF</title>
+  <title>Asp.Net Core中间件和路由 | Neoz</title>
   
 
 
@@ -194,7 +194,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">MrF</span>
+        <span class="site-title">Neoz</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -340,16 +340,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://neoz.top/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://neoz.top/Asp.Net Core中间件和路由/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrF">
-      <meta itemprop="description" content="自学C#">
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MrF">
+      <meta itemprop="name" content="Neoz">
     </span>
 
     
@@ -357,7 +357,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hello World
+          <h2 class="post-title" itemprop="name headline">Asp.Net Core中间件和路由
               
             
           </h2>
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2018-07-12 22:39:44" itemprop="dateCreated datePublished" datetime="2018-07-12T22:39:44+08:00">2018-07-12</time>
+              <time title="创建时间：2019-04-19 16:27:27" itemprop="dateCreated datePublished" datetime="2019-04-19T16:27:27+08:00">2019-04-19</time>
             
 
             
@@ -399,11 +399,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-27 22:26:22" itemprop="dateModified" datetime="2018-06-27T22:26:22+08:00">2018-06-27</time>
+                <time title="修改时间：2019-04-20 00:27:46" itemprop="dateModified" datetime="2019-04-20T00:27:46+08:00">2019-04-20</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -413,8 +431,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/hello-world/" itemprop="commentCount"></span>
+                <a href="/Asp.Net Core中间件和路由/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/Asp.Net Core中间件和路由/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -442,15 +460,75 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="注入日志中间件"><a href="#注入日志中间件" class="headerlink" title="注入日志中间件"></a>注入日志中间件</h1><pre><code class="C#">public void Configure(IApplicationBuilder app,IHostingEnvironment env,IWelcomeService welcomeService,ILogger&lt;Startup&gt; logger)
+{
+  //Use在启动配置的时候走了一遍，只运行一次
+  app.Use(next=&gt;
+  {
+   logger.LogInformation(&quot;app.Use()......&quot;);//使用日志
+   //请求没有拦截的话，请求每次都会运行
+   return async httpContext=&gt;
+   {
+       logger.LogInformation(&quot;----async httpContext&quot;);
+       if(httpContext.Request.Path.StartsWithSegments(&quot;/first&quot;))
+       {
+         logger.LogInformation(&quot;----First!!!&quot;);
+         await httpContext.Response.WriteAsync(&quot;First!!!&quot;);
+       }
+       else
+       {
+         logger.LogInformation(&quot;----next(httpContext)&quot;);
+         await next(httpContext);//没有访问first目录，继续往下走
+       }
+    };
+  });
+
+  app.Run(async(context)=&gt;
+  {
+   var welcome=welcomeService.GetMessage();
+   await context.Response.WriteAsync(welcome);
+  });
+}
+</code></pre>
+<hr>
+<h1 id="使用路由"><a href="#使用路由" class="headerlink" title="使用路由"></a>使用路由</h1><p>路由分为：1.Convention Route(约定路由)  2.Attribute Route(属性路由),不能混用</p>
+<h2 id="约定路由："><a href="#约定路由：" class="headerlink" title="约定路由："></a>约定路由：</h2><pre><code class="C#">public void Configure(....)
+{
+    //创建wwwroot文件夹，新建index.html，使用app.UseFileServer()才能访问
+
+    //使用默认路由配置的mvc
+    app.UseStaticFiles();
+    //app.UseMvcWithDefaultRoute();
+
+    //手动配置约定路由 /Home/Index/3
+    app.useMvc(builder=&gt;
+        {
+            //自定义路由 （名称，模板规则）如果目录没有Home，Index，默认使用Home，Index
+            builder.MapRoute(&quot;Default&quot;,&quot;{controller=Home}/{action=Index}/{id?}&quot;);
+        });
+}
+</code></pre>
+<blockquote>
+<p>访问网站根目录即可到达Index页面</p>
+</blockquote>
+<h2 id="属性路由"><a href="#属性路由" class="headerlink" title="属性路由"></a>属性路由</h2><p>新建一个<code>AboutController</code>类</p>
+<pre><code class="C#">//按照路径，先访问控制器名，再访问方法
+[Route(&quot;[controller]/[action]&quot;)]
+public class AboutController
+{
+    public string Me()
+    {
+        return &quot;Dave&quot;;
+    }
+    public string Company()
+    {
+        return &quot;No Company&quot;;
+    }
+}
+</code></pre>
+<blockquote>
+<p>/about/me  返回<code>Dave</code></p>
+</blockquote>
 
       
     </div>
@@ -479,6 +557,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Asp-Net-Core/" rel="tag"> <i class="fa fa-tag"></i> Asp.Net Core</a>
+          
+        </div>
+      
 
       
       
@@ -488,8 +572,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/构造函数使用/" rel="next" title="构造函数使用">
-                <i class="fa fa-chevron-left"></i> 构造函数使用
+              <a href="/Asp.Net Core中的配置和服务注入/" rel="next" title="Asp.Net Core中的配置和服务注入">
+                <i class="fa fa-chevron-left"></i> Asp.Net Core中的配置和服务注入
               </a>
             
           </div>
@@ -497,10 +581,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/GtiHub-Hexo搭建个人博客/" rel="prev" title="GtiHub+Hexo搭建个人博客">
-                GtiHub+Hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +651,7 @@
                 alt="MrF" />
             
               <p class="site-author-name" itemprop="name">MrF</p>
-              <p class="site-description motion-element" itemprop="description">自学C#</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           
@@ -678,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注入日志中间件"><span class="nav-number">1.</span> <span class="nav-text">注入日志中间件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用路由"><span class="nav-number">2.</span> <span class="nav-text">使用路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#约定路由："><span class="nav-number">2.1.</span> <span class="nav-text">约定路由：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性路由"><span class="nav-number">2.2.</span> <span class="nav-text">属性路由</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1253,3 +1333,14 @@
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--代码高亮-->
+<script type="text/javascript" src="/js/src/prettify.js"></script>
+<link rel="stylesheet" href="/css/desert.css" type="text/css">
+<script type="text/javascript">
+  $(window).load(function(){
+ $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   prettyPrint();
+ })
+</script>
+

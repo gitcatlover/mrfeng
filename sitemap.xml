@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://neoz.top/Asp.Net%20Core%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%92%8C%E8%B7%AF%E7%94%B1/</loc>
+    
+    <lastmod>2019-04-19T16:27:46.378Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://neoz.top/Asp.Net%20Core%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%85%A5/</loc>
     
-    <lastmod>2019-04-18T11:26:04.621Z</lastmod>
+    <lastmod>2019-04-19T15:58:19.998Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>https://neoz.top/%E6%A1%86%E6%9E%B6%E4%B8%8E%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</loc>
     
     <lastmod>2018-06-28T12:27:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neoz.top/hello-world/</loc>
-    
-    <lastmod>2018-06-27T14:26:22.000Z</lastmod>
     
   </url>
   
