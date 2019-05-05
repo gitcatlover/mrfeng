@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="test架构：软件体系结构通常称为架构 框架与架构共同点：提高生产效率为了解决问题都是体系化的产物·····不同点：框架是总体规划，协调单元完成工作框架是具体实施内容">
-<meta name="keywords" content="基础,架构">
+  <meta name="description" content="客户端Response缓存： 基于Header 客户端缓存 使用ResponseCache这个Attribute   在 Startup 里设置:  services.AddMvc(options=&amp;gt; {     options.CacheProfiles.Add(&amp;quot;Default&amp;quot;,new CacheProfiles     {       Duration=30//3">
+<meta name="keywords" content="Asp.Net Core">
 <meta property="og:type" content="article">
-<meta property="og:title" content="框架与架构设计">
-<meta property="og:url" content="https://neoz.top/框架与架构设计/index.html">
+<meta property="og:title" content="缓存&amp;数据压缩&amp;token">
+<meta property="og:url" content="https://neoz.top/缓存&数据压缩&token/index.html">
 <meta property="og:site_name" content="Neoz">
-<meta property="og:description" content="test架构：软件体系结构通常称为架构 框架与架构共同点：提高生产效率为了解决问题都是体系化的产物·····不同点：框架是总体规划，协调单元完成工作框架是具体实施内容">
+<meta property="og:description" content="客户端Response缓存： 基于Header 客户端缓存 使用ResponseCache这个Attribute   在 Startup 里设置:  services.AddMvc(options=&amp;gt; {     options.CacheProfiles.Add(&amp;quot;Default&amp;quot;,new CacheProfiles     {       Duration=30//3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-28T12:27:32.000Z">
+<meta property="og:updated_time" content="2019-05-05T10:38:37.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="框架与架构设计">
-<meta name="twitter:description" content="test架构：软件体系结构通常称为架构 框架与架构共同点：提高生产效率为了解决问题都是体系化的产物·····不同点：框架是总体规划，协调单元完成工作框架是具体实施内容">
+<meta name="twitter:title" content="缓存&amp;数据压缩&amp;token">
+<meta name="twitter:description" content="客户端Response缓存： 基于Header 客户端缓存 使用ResponseCache这个Attribute   在 Startup 里设置:  services.AddMvc(options=&amp;gt; {     options.CacheProfiles.Add(&amp;quot;Default&amp;quot;,new CacheProfiles     {       Duration=30//3">
 
 
 
 
 
 
-  <link rel="canonical" href="https://neoz.top/框架与架构设计/"/>
+  <link rel="canonical" href="https://neoz.top/缓存&数据压缩&token/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>框架与架构设计 | Neoz</title>
+  <title>缓存&数据压缩&token | Neoz</title>
   
 
 
@@ -340,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://neoz.top/框架与架构设计/">
+    <link itemprop="mainEntityOfPage" href="https://neoz.top/缓存&数据压缩&token/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrF">
@@ -357,7 +357,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">框架与架构设计
+          <h2 class="post-title" itemprop="name headline">缓存&数据压缩&token
               
             
           </h2>
@@ -382,28 +382,34 @@
                 
               
 
-              <time title="创建时间：2018-06-27 16:26:08" itemprop="dateCreated datePublished" datetime="2018-06-27T16:26:08+08:00">2018-06-27</time>
+              <time title="创建时间：2019-05-05 15:56:11 / 修改时间：18:38:37" itemprop="dateCreated datePublished" datetime="2019-05-05T15:56:11+08:00">2019-05-05</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-28 20:27:32" itemprop="dateModified" datetime="2018-06-28T20:27:32+08:00">2018-06-28</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -413,8 +419,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/框架与架构设计/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/框架与架构设计/" itemprop="commentCount"></span>
+                <a href="/缓存&数据压缩&token/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/缓存&数据压缩&token/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -442,8 +448,92 @@
       
 
       
-        <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><p>架构：软件体系结构通常称为架构</p>
-<p>框架与架构共同点：<br>提高生产效率<br>为了解决问题<br>都是体系化的产物<br>·····<br>不同点：<br>框架是总体规划，协调单元完成工作<br>框架是具体实施内容</p>
+        <h1 id="客户端Response缓存："><a href="#客户端Response缓存：" class="headerlink" title="客户端Response缓存："></a>客户端Response缓存：</h1><ol>
+<li>基于Header</li>
+<li>客户端缓存</li>
+<li>使用ResponseCache这个Attribute </li>
+</ol>
+<pre><code class="C#">在 Startup 里设置:
+
+services.AddMvc(options=&gt;
+{
+    options.CacheProfiles.Add(&quot;Default&quot;,new CacheProfiles
+    {
+      Duration=30//30秒后缓存过期
+    });
+});
+
+在Controller使用：
+//缓存保存时间30秒，保存位置在客户端。前进后退可用，刷新重新请求
+//[ResponseCache(Duration=30,Location=ResponseCacheLocation.Client)]
+[ResponseCache(CacheProfileName=&quot;Default&quot;)]
+public IActionResult Index()
+{
+    return View();
+}
+</code></pre>
+<hr>
+<h1 id="服务器端缓存"><a href="#服务器端缓存" class="headerlink" title="服务器端缓存:"></a>服务器端缓存:</h1><pre><code class="C#">Startup里:
+services.AddMemoryCache();
+使用：
+1. 新建一个类，存储缓存的key：
+public class CacheEntryConstants
+{
+     //声明一个缓存的key ：AlbumsOfDay，值是它的字符串
+    public const string AlbumOfDay = nameof(AlbumOfDay);
+}
+2.
+private readonly IMermoryCache _memoryCache;
+private readonly IAlbumService _albumService;
+private readonly HtmlEncoder _htmlEncoder;//防御xss恶意代码
+public AlbumController(IMermoryCache memoryCache,IAlbumService albumService,HtmlEncoder htmlEncoder)
+{
+    this._memoryCache = memoryCache;
+    this._albumService = albumService;
+    this._htmlEncoder = htmlEncoder;
+}
+3.缓存Album这个页面:
+public async Task&lt;IActionResult&gt; Index()
+{
+    //参数（缓存的key，缓存的值）
+    if(!_memoryCache.TryGetValue(CacheEntryConstants.AlbumsOfDay, 
+        out LIst&lt;Album&gt; cacheAlbums))
+    {  //缓存为空，获取值放入缓存
+       cacheAlbums = await _albumService.GetAll();
+       var cacheEntryOptions = new MemoryCacheEntryOptions()
+                                //在20秒内获取缓存值，过期时间延后20秒
+                               .SetSlidingExpiration(TimeSpan.FromSeconds(20));
+                               //缓存20秒就过期
+                               //.SetAbsoluteExpiration(TimeSpan.FromSeconds(20));
+       //设置缓存的值
+       _memoryCache.Set(CacheEntryConstants.AlbumsOfDay, cacheAlbums, cacheEntryOptions);                        
+    }
+    return View(cacheAlbums);
+}
+</code></pre>
+<h1 id="为提交数据做处理："><a href="#为提交数据做处理：" class="headerlink" title="为提交数据做处理："></a>为提交数据做处理：</h1><pre><code class="C#">public async Task&lt;IActionResult&gt; Create()
+{
+    var new Model = await _albumService.AddAsync(new Album
+    {   //为提交的数据做处理
+        Artist = _htmlEncoder.Encode(albumCreateViewModel.Artist),
+        ........
+    })
+}
+</code></pre>
+<h1 id="使用数据压缩功能"><a href="#使用数据压缩功能" class="headerlink" title="使用数据压缩功能:"></a>使用数据压缩功能:</h1><p>添加服务：</p>
+<pre><code class="C#">services.AddResponseCompression();
+</code></pre>
+<p>使用：</p>
+<pre><code class="C#">app.UseReponseCompression();
+</code></pre>
+<h1 id="Token防跨站伪造："><a href="#Token防跨站伪造：" class="headerlink" title="Token防跨站伪造："></a>Token防跨站伪造：</h1><pre><code class="C#">//为所有post添加token标签
+services.AddMvc(opt=&gt;
+{  //在不需要token的post上添加 [IgnoreAntiforgeryToken]
+   opt.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+});
+//单个方法添加token： 
+[ValidateAntiForgeryToken]
+</code></pre>
 
       
     </div>
@@ -474,9 +564,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/基础/" rel="tag"> <i class="fa fa-tag"></i> 基础</a>
-          
-            <a href="/tags/架构/" rel="tag"> <i class="fa fa-tag"></i> 架构</a>
+            <a href="/tags/Asp-Net-Core/" rel="tag"> <i class="fa fa-tag"></i> Asp.Net Core</a>
           
         </div>
       
@@ -489,15 +577,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/Controller返回View/" rel="next" title="Controller返回View">
+                <i class="fa fa-chevron-left"></i> Controller返回View
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/构造函数使用/" rel="prev" title="构造函数使用">
-                构造函数使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#test"><span class="nav-number">1.</span> <span class="nav-text">test</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端Response缓存："><span class="nav-number">1.</span> <span class="nav-text">客户端Response缓存：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器端缓存"><span class="nav-number">2.</span> <span class="nav-text">服务器端缓存:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为提交数据做处理："><span class="nav-number">3.</span> <span class="nav-text">为提交数据做处理：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用数据压缩功能"><span class="nav-number">4.</span> <span class="nav-text">使用数据压缩功能:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Token防跨站伪造："><span class="nav-number">5.</span> <span class="nav-text">Token防跨站伪造：</span></a></li></ol></div>
             
 
           </div>
