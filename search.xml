@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[C#基础]]></title>
+    <url>%2F%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[C#基础：mian方法可以返回int，通常是0，不是0，就发生了错误 var b = 0b1001;//前面加上0b二进制 var a = 0x4F;//16进制 Console.WriteLine(1.0 / 0.0);//∞ Console.WriteLine(-1.0 / 0.00);// -∞ Console.WriteLine(1.0/-0.00);//-∞ Console.WriteLine(-1.0/-0.0);//∞ //NaN 和 NaN不相等，使用Object.Equal()时相等。 Console.WriteLine(0.0/0.0);//NaN Console.WriteLine((1.0/0.0)-(1.0/0.0));//NaN Console.WriteLine((0.0/0.0)==double.NaN);//false Console.WriteLine(object.Equals((0.0/0.0),double.NaN));//true //double 特殊值：+0,-0,∞,-∞,NaN]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[日志&Model验证]]></title>
+    <url>%2F%E6%97%A5%E5%BF%97%26Model%E9%AA%8C%E8%AF%81%2F</url>
+    <content type="text"><![CDATA[第三方日志Serilog.AspNetCore1. NuGet安装Serilog.AspNetCore，Serilog.Sinks.Console(调试控制台显示日志),Serilog.Sinks.File 2. Main方法里： Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug()//最下级别Debug //遇到Microsoft命名空间最低级别Information .MinimumLevel.Override(&quot;Microsoft&quot;,LogEventLevel.Information) .Enrich.FromLogContext()//通过上下文可以记录其他信息 .WriteTo.Console() //日志文件创建在logs文件夹里，每天一个 .WriteTo.File(Path.Combine(&quot;logs&quot;,&quot;log.txt&quot;),rollingInterval:RollingInterval.Day) .CreateLogger(); 使用： public static IWebHostBuilder CreateWebHostBuilder(string[] args) =&gt; WebHost.CreateDefaultBuilder(args) .UseSerilog()//使用日志 .UseStartup&lt;Startup&gt;(); Model验证1. 写一个验证已存在角色方法： [AcceptVerbs(&quot;Get&quot;,&quot;Post&quot;)]//接受get，post请求 public async Task&lt;IActionResult&gt; CheckRoleExit([Bind(&quot;RoleName&quot;)] string roleName) {//Bind 只接收View传过来的RoleName var role = await _roleManager.FindByNameAsync(roleName); if(role!=null) { return Json(&quot;角色已存在！&quot;);//return Json(false); //返回ErrorMessage里的值 } return Json(true); } 2. Remote在前台直接调用CheckRoleExist方法验证角色是否存在 在添加角色的RoleAddViewModel里： [Remote(nameof(RoleController.CheckRoleExit),&quot;Role&quot;,ErrorMessage = &quot;角色存在&quot;)] public string RoleName{get;set;} 3. 在AddRole页面： @model MyWeb.ViewModels.RoleAddViewModel &lt;form method=&quot;post&quot;&gt; &lt;input class = &quot;form-control&quot; asp-for=&quot;RoleName&quot;/&gt; &lt;span class = &quot;invalid&quot; asp-validation-for=&quot;RoleName&quot;&gt;&lt;/span&gt; 在没有提交刷新情况下会验证角色是否已存在]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Asp.Net Core</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[缓存&数据压缩&token]]></title>
     <url>%2F%E7%BC%93%E5%AD%98%26%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9%26token%2F</url>
     <content type="text"><![CDATA[客户端Response缓存： 基于Header 客户端缓存 使用ResponseCache这个Attribute 在 Startup 里设置: services.AddMvc(options=&gt; { options.CacheProfiles.Add(&quot;Default&quot;,new CacheProfiles { Duration=30//30秒后缓存过期 }); }); 在Controller使用： //缓存保存时间30秒，保存位置在客户端。前进后退可用，刷新重新请求 //[ResponseCache(Duration=30,Location=ResponseCacheLocation.Client)] [ResponseCache(CacheProfileName=&quot;Default&quot;)] public IActionResult Index() { return View(); } 服务器端缓存:Startup里: services.AddMemoryCache(); 使用： 1. 新建一个类，存储缓存的key： public class CacheEntryConstants { //声明一个缓存的key ：AlbumsOfDay，值是它的字符串 public const string AlbumOfDay = nameof(AlbumOfDay); } 2. private readonly IMermoryCache _memoryCache; private readonly IAlbumService _albumService; private readonly HtmlEncoder _htmlEncoder;//防御xss恶意代码 public AlbumController(IMermoryCache memoryCache,IAlbumService albumService,HtmlEncoder htmlEncoder) { this._memoryCache = memoryCache; this._albumService = albumService; this._htmlEncoder = htmlEncoder; } 3.缓存Album这个页面: public async Task&lt;IActionResult&gt; Index() { //参数（缓存的key，缓存的值） if(!_memoryCache.TryGetValue(CacheEntryConstants.AlbumsOfDay, out LIst&lt;Album&gt; cacheAlbums)) { //缓存为空，获取值放入缓存 cacheAlbums = await _albumService.GetAll(); var cacheEntryOptions = new MemoryCacheEntryOptions() //在20秒内获取缓存值，过期时间延后20秒 .SetSlidingExpiration(TimeSpan.FromSeconds(20)); //缓存20秒就过期 //.SetAbsoluteExpiration(TimeSpan.FromSeconds(20)); //设置缓存的值 _memoryCache.Set(CacheEntryConstants.AlbumsOfDay, cacheAlbums, cacheEntryOptions); } return View(cacheAlbums); } 为提交数据做处理：public async Task&lt;IActionResult&gt; Create() { var new Model = await _albumService.AddAsync(new Album { //为提交的数据做处理 Artist = _htmlEncoder.Encode(albumCreateViewModel.Artist), ........ }) } 使用数据压缩功能:添加服务： services.AddResponseCompression(); 使用： app.UseReponseCompression(); Token防跨站伪造：//为所有post添加token标签 services.AddMvc(opt=&gt; { //在不需要token的post上添加 [IgnoreAntiforgeryToken] opt.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()); }); //单个方法添加token： [ValidateAntiForgeryToken]]]></content>
