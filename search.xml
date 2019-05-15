@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[C#基础]]></title>
-    <url>%2F%E5%9F%BA%E7%A1%80%2F</url>
-    <content type="text"><![CDATA[C#基础：mian方法可以返回int，通常是0，不是0，就发生了错误 var b = 0b1001;//前面加上0b二进制 var a = 0x4F;//16进制 Console.WriteLine(1.0 / 0.0);//∞ Console.WriteLine(-1.0 / 0.00);// -∞ Console.WriteLine(1.0/-0.00);//-∞ Console.WriteLine(-1.0/-0.0);//∞ //NaN 和 NaN不相等，使用Object.Equal()时相等。 Console.WriteLine(0.0/0.0);//NaN Console.WriteLine((1.0/0.0)-(1.0/0.0));//NaN Console.WriteLine((0.0/0.0)==double.NaN);//false Console.WriteLine(object.Equals((0.0/0.0),double.NaN));//true //double 特殊值：+0,-0,∞,-∞,NaN]]></content>
+    <title><![CDATA[缓存&数据压缩&token]]></title>
+    <url>%2F%E7%BC%93%E5%AD%98%26%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9%26token%2F</url>
+    <content type="text"><![CDATA[客户端Response缓存： 基于Header 客户端缓存 使用ResponseCache这个Attribute 在 Startup 里设置: services.AddMvc(options=&gt; { options.CacheProfiles.Add(&quot;Default&quot;,new CacheProfiles { Duration=30//30秒后缓存过期 }); }); 在Controller使用： //缓存保存时间30秒，保存位置在客户端。前进后退可用，刷新重新请求 //[ResponseCache(Duration=30,Location=ResponseCacheLocation.Client)] [ResponseCache(CacheProfileName=&quot;Default&quot;)] public IActionResult Index() { return View(); } 服务器端缓存:Startup里: services.AddMemoryCache(); 使用： 1. 新建一个类，存储缓存的key： public class CacheEntryConstants { //声明一个缓存的key ：AlbumsOfDay，值是它的字符串 public const string AlbumOfDay = nameof(AlbumOfDay); } 2. private readonly IMermoryCache _memoryCache; private readonly IAlbumService _albumService; private readonly HtmlEncoder _htmlEncoder;//防御xss恶意代码 public AlbumController(IMermoryCache memoryCache,IAlbumService albumService,HtmlEncoder htmlEncoder) { this._memoryCache = memoryCache; this._albumService = albumService; this._htmlEncoder = htmlEncoder; } 3.缓存Album这个页面: public async Task&lt;IActionResult&gt; Index() { //参数（缓存的key，缓存的值） if(!_memoryCache.TryGetValue(CacheEntryConstants.AlbumsOfDay, out LIst&lt;Album&gt; cacheAlbums)) { //缓存为空，获取值放入缓存 cacheAlbums = await _albumService.GetAll(); var cacheEntryOptions = new MemoryCacheEntryOptions() //在20秒内获取缓存值，过期时间延后20秒 .SetSlidingExpiration(TimeSpan.FromSeconds(20)); //缓存20秒就过期 //.SetAbsoluteExpiration(TimeSpan.FromSeconds(20)); //设置缓存的值 _memoryCache.Set(CacheEntryConstants.AlbumsOfDay, cacheAlbums, cacheEntryOptions); } return View(cacheAlbums); } 为提交数据做处理：public async Task&lt;IActionResult&gt; Create() { var new Model = await _albumService.AddAsync(new Album { //为提交的数据做处理 Artist = _htmlEncoder.Encode(albumCreateViewModel.Artist), ........ }) } 使用数据压缩功能:添加服务： services.AddResponseCompression(); 使用： app.UseReponseCompression(); Token防跨站伪造：//为所有post添加token标签 services.AddMvc(opt=&gt; { //在不需要token的post上添加 [IgnoreAntiforgeryToken] opt.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()); }); //单个方法添加token： [ValidateAntiForgeryToken]]]></content>
       <categories>
-        <category>C#</category>
+        <category>Web</category>
       </categories>
       <tags>
-        <tag>C#</tag>
-        <tag>基础</tag>
+        <tag>Asp.Net Core</tag>
       </tags>
   </entry>
   <entry>
@@ -24,14 +23,37 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[缓存&数据压缩&token]]></title>
-    <url>%2F%E7%BC%93%E5%AD%98%26%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9%26token%2F</url>
-    <content type="text"><![CDATA[客户端Response缓存： 基于Header 客户端缓存 使用ResponseCache这个Attribute 在 Startup 里设置: services.AddMvc(options=&gt; { options.CacheProfiles.Add(&quot;Default&quot;,new CacheProfiles { Duration=30//30秒后缓存过期 }); }); 在Controller使用： //缓存保存时间30秒，保存位置在客户端。前进后退可用，刷新重新请求 //[ResponseCache(Duration=30,Location=ResponseCacheLocation.Client)] [ResponseCache(CacheProfileName=&quot;Default&quot;)] public IActionResult Index() { return View(); } 服务器端缓存:Startup里: services.AddMemoryCache(); 使用： 1. 新建一个类，存储缓存的key： public class CacheEntryConstants { //声明一个缓存的key ：AlbumsOfDay，值是它的字符串 public const string AlbumOfDay = nameof(AlbumOfDay); } 2. private readonly IMermoryCache _memoryCache; private readonly IAlbumService _albumService; private readonly HtmlEncoder _htmlEncoder;//防御xss恶意代码 public AlbumController(IMermoryCache memoryCache,IAlbumService albumService,HtmlEncoder htmlEncoder) { this._memoryCache = memoryCache; this._albumService = albumService; this._htmlEncoder = htmlEncoder; } 3.缓存Album这个页面: public async Task&lt;IActionResult&gt; Index() { //参数（缓存的key，缓存的值） if(!_memoryCache.TryGetValue(CacheEntryConstants.AlbumsOfDay, out LIst&lt;Album&gt; cacheAlbums)) { //缓存为空，获取值放入缓存 cacheAlbums = await _albumService.GetAll(); var cacheEntryOptions = new MemoryCacheEntryOptions() //在20秒内获取缓存值，过期时间延后20秒 .SetSlidingExpiration(TimeSpan.FromSeconds(20)); //缓存20秒就过期 //.SetAbsoluteExpiration(TimeSpan.FromSeconds(20)); //设置缓存的值 _memoryCache.Set(CacheEntryConstants.AlbumsOfDay, cacheAlbums, cacheEntryOptions); } return View(cacheAlbums); } 为提交数据做处理：public async Task&lt;IActionResult&gt; Create() { var new Model = await _albumService.AddAsync(new Album { //为提交的数据做处理 Artist = _htmlEncoder.Encode(albumCreateViewModel.Artist), ........ }) } 使用数据压缩功能:添加服务： services.AddResponseCompression(); 使用： app.UseReponseCompression(); Token防跨站伪造：//为所有post添加token标签 services.AddMvc(opt=&gt; { //在不需要token的post上添加 [IgnoreAntiforgeryToken] opt.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()); }); //单个方法添加token： [ValidateAntiForgeryToken]]]></content>
+    <title><![CDATA[C#基础]]></title>
+    <url>%2F%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[C#基础：mian方法可以返回int，通常是0，不是0，就发生了错误 var b = 0b1001;//前面加上0b二进制 var a = 0x4F;//16进制 Console.WriteLine(1.0 / 0.0);//∞ Console.WriteLine(-1.0 / 0.00);// -∞ Console.WriteLine(1.0/-0.00);//-∞ Console.WriteLine(-1.0/-0.0);//∞ //NaN 和 NaN不相等，使用Object.Equal()时相等。 Console.WriteLine(0.0/0.0);//NaN Console.WriteLine((1.0/0.0)-(1.0/0.0));//NaN Console.WriteLine((0.0/0.0)==double.NaN);//false Console.WriteLine(object.Equals((0.0/0.0),double.NaN));//true //double 特殊值：+0,-0,∞,-∞,NaN const 和 static readonly区别： const（静态常量）:在编译期间解析的常量必须声明就初始化(int,float,枚举,字符串。不能new)可修饰类中成员，也可修饰函数体内局部变量 static readonly（动态常量）:在运行期间解析的常量可在声明时初始化，也可在构造器中初始化只修饰类中成员]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[GtiHub+Hexo搭建个人博客]]></title>
+    <url>%2FGtiHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[这是引用 1,注册GitHub，创建仓库，仓库名：你的GitHub用户名.github.io(必须这种格式) 2,在官网下载，安装git。我们的网站本地搭建好需要用git同步到GitHub上。开始菜单里打开Git here bash，配置信息： git config --global user.name &quot;你的GitHub用户名&quot; (Enter执行) git config --global user.email &quot;你的GitHub注册邮箱&quot; (Enter执行) 本地生成ssh密钥文件（连接Github需要）： ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot; 然后三个回车，默认不设置密码。 3,然后在.ssh文件夹中用Notepad++ 打开id_rsa.pub密钥，将内容全部复制在GitHub个人下点settings,打开SSH and GPR keys项，新建 new SSH Key：标题随便写，将密钥复制到key新建。 4,在Git Bash中检测公钥是否可用，输入: ssh git@github.com 如果显示成功，这就完成了Git与GitHub绑定 5,安装Node.jsHexo是基于Node.js的,Node.js包含环境变量及npm的安装。 6,安装HexoHexo是博客网站框架。利用npm命令全局安装：npm install -g hexo在电脑上创建一个文件夹，命名myblog，然后鼠标右键文件夹 Git Bash Her安装完后 初始化博客：hexo init安装依赖包： npm install初始化完 检测运行一下：hexo g # 生成(g是generate缩写)hexo s然后再浏览器中打开localhost:4000,就可以打开博客首页 常用的Hexo命令：npm install hexo -g #全局安装Hexonpm update hexo -s #升级hexo init #初始化博客 命令简写：hexo n “文章名” == hexo new “文章名” #新建文章hexo g == hexo generate #生成hexo s == hexo server #启用服务预览hexo d ==hexo deploy #部署本地网页到GitHub hexo server #Hexo会监视文件改变并自动更新，，无需重启服务hexo server -s #静态模式hexo server -p 5000 #改变端口 $ hexo server hexo server -i 192.168.0.1 #自定义IPhexo clean #清楚缓存 7,把Hexo与GitHub关联起来，打开站点配置文件myblog/_config.yml,翻到最后修改为：deploy: type: git #注意空格 ropo: git@github.com:你的GitHub用户名/你的GitHub用户名.github.io.git branch: master保存站点配置文件 安装Git部署插件：npm install hexo-deployer-git –save完成后执行：hexo cleanhexo ghexo d这样你的网站被部署在GitHub上了，可以网络访问 你的GitHub用户名.github.io 修改文章内链接样式修改文件 themes\next\source\css_common\components\post\post.styl，在末尾添加如下css样式，： // 文章内链接文本样式.post-body p a{ color: #0593d3; border-bottom: none; border-bottom: 1px solid #0593d3; &amp;:hover { color: #fc6423; border-bottom: none; border-bottom: 1px solid #fc6423; }} 文章添加分类定位到站点目录下: hexo new page categories编辑刚新建的页面，将页面的 type 设置为 categories ，主题将自动为这个页面显示分类。页面内容如下：title: 分类date: 2014-12-22 12:39:04 type: “categories”在菜单中添加链接。编辑 主题配置文件 ， 添加 categories 到 menu 中，如下:menu: home: / archives: /archives categories: /categories 添加标签在终端窗口下，定位到 Hexo 站点目录下。使用 hexo new page 新建一个页面，命名为 tags ：$ cd your-hexo-site$ hexo new page tags编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。页面内容如下：title: 标签date: 2014-12-22 12:39:04 type: “tags”在菜单中添加链接。编辑 主题配置文件 ， 添加 tags 到 menu 中，如下:menu: home: / archives: /archives tags: /tags 百度谷歌收录你的站点 $ npm install hexo-generator-sitemap --save #google npm install hexo-generator-baidu-sitemap --save #百度 添加本地搜索 $ npm install hexo-generator-searchdb --save 站点配置文件，任意位置新增： search: path: search.xml filed: post format: html limit: 10000 编辑主题配置文件，启用搜索: local_serach: enable: true]]></content>
       <categories>
         <category>Web</category>
       </categories>
       <tags>
-        <tag>Asp.Net Core</tag>
+        <tag>GitGub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[EFCore基础]]></title>
+    <url>%2FEFCore%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[种子数据库//查看EFCore命令：get-help entityframeworkcore//script-migration 生成sql脚本 //Model里有一个省份Province，一个城市City //在 DBContex 里： protected override void OnModelCreateing(ModelBuilder modelBuilder) { //添加了一个省份的种子，Id是自增的 modelBuilder.Entity&lt;Province&gt;().HasData( new Province { Id = 1, Name=&quot;广东&quot;, Populiation=70000000 }); } 生成迁移： Add-Migration xxx 获取客户端IP地址在Startup.cs里： services.AddHttpContextAccessor(); service.TryAddSingleton&lt;IActionContextAccessor,ActionContextAccessor&gt;(); 在MVC视图里： @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor 使用方法： Client IP: @HttpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString() Session 和 Cookie1. 手动添加Session支持： services.AddDistributedMemoryCache(); services.AddSession(options=&gt; { options.IdleTimeOut = TimeSpan.FromMinutes(20); options.Cookie.HttpOnly = true; }); 2. app.UseSession(); 3. 设定和获取Session值： HttpContest.Session.SetString(&quot;CaptchaCode&quot;,resultCaptchaCode); HttpContext.Session.GetString(&quot;CaptchaCode&quot;); 清除值： context.Session.Remove(&quot;CaptchaCode&quot;);]]></content>
+      <categories>
+        <category>ASP.NetCore</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
@@ -68,23 +90,12 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[GtiHub+Hexo搭建个人博客]]></title>
-    <url>%2FGtiHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[这是引用 1,注册GitHub，创建仓库，仓库名：你的GitHub用户名.github.io(必须这种格式) 2,在官网下载，安装git。我们的网站本地搭建好需要用git同步到GitHub上。开始菜单里打开Git here bash，配置信息： git config --global user.name &quot;你的GitHub用户名&quot; (Enter执行) git config --global user.email &quot;你的GitHub注册邮箱&quot; (Enter执行) 本地生成ssh密钥文件（连接Github需要）： ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot; 然后三个回车，默认不设置密码。 3,然后在.ssh文件夹中用Notepad++ 打开id_rsa.pub密钥，将内容全部复制在GitHub个人下点settings,打开SSH and GPR keys项，新建 new SSH Key：标题随便写，将密钥复制到key新建。 4,在Git Bash中检测公钥是否可用，输入: ssh git@github.com 如果显示成功，这就完成了Git与GitHub绑定 5,安装Node.jsHexo是基于Node.js的,Node.js包含环境变量及npm的安装。 6,安装HexoHexo是博客网站框架。利用npm命令全局安装：npm install -g hexo在电脑上创建一个文件夹，命名myblog，然后鼠标右键文件夹 Git Bash Her安装完后 初始化博客：hexo init安装依赖包： npm install初始化完 检测运行一下：hexo g # 生成(g是generate缩写)hexo s然后再浏览器中打开localhost:4000,就可以打开博客首页 常用的Hexo命令：npm install hexo -g #全局安装Hexonpm update hexo -s #升级hexo init #初始化博客 命令简写：hexo n “文章名” == hexo new “文章名” #新建文章hexo g == hexo generate #生成hexo s == hexo server #启用服务预览hexo d ==hexo deploy #部署本地网页到GitHub hexo server #Hexo会监视文件改变并自动更新，，无需重启服务hexo server -s #静态模式hexo server -p 5000 #改变端口 $ hexo server hexo server -i 192.168.0.1 #自定义IPhexo clean #清楚缓存 7,把Hexo与GitHub关联起来，打开站点配置文件myblog/_config.yml,翻到最后修改为：deploy: type: git #注意空格 ropo: git@github.com:你的GitHub用户名/你的GitHub用户名.github.io.git branch: master保存站点配置文件 安装Git部署插件：npm install hexo-deployer-git –save完成后执行：hexo cleanhexo ghexo d这样你的网站被部署在GitHub上了，可以网络访问 你的GitHub用户名.github.io 修改文章内链接样式修改文件 themes\next\source\css_common\components\post\post.styl，在末尾添加如下css样式，： // 文章内链接文本样式.post-body p a{ color: #0593d3; border-bottom: none; border-bottom: 1px solid #0593d3; &amp;:hover { color: #fc6423; border-bottom: none; border-bottom: 1px solid #fc6423; }} 文章添加分类定位到站点目录下: hexo new page categories编辑刚新建的页面，将页面的 type 设置为 categories ，主题将自动为这个页面显示分类。页面内容如下：title: 分类date: 2014-12-22 12:39:04 type: “categories”在菜单中添加链接。编辑 主题配置文件 ， 添加 categories 到 menu 中，如下:menu: home: / archives: /archives categories: /categories 添加标签在终端窗口下，定位到 Hexo 站点目录下。使用 hexo new page 新建一个页面，命名为 tags ：$ cd your-hexo-site$ hexo new page tags编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。页面内容如下：title: 标签date: 2014-12-22 12:39:04 type: “tags”在菜单中添加链接。编辑 主题配置文件 ， 添加 tags 到 menu 中，如下:menu: home: / archives: /archives tags: /tags 百度谷歌收录你的站点 $ npm install hexo-generator-sitemap --save #google npm install hexo-generator-baidu-sitemap --save #百度 添加本地搜索 $ npm install hexo-generator-searchdb --save 站点配置文件，任意位置新增： search: path: search.xml filed: post format: html limit: 10000 编辑主题配置文件，启用搜索: local_serach: enable: true]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>GitGub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[构造函数使用]]></title>
     <url>%2F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法： public class MyClass { //.. } 它的构造方法就是： public Myclass() { //.. } 当我们实例化的时候，其实调用了构造方法。 可以在构造方法上写注释，new时看注释就知道了。 ///&lt;summary&gt; ///这是类 ///&lt;/summary&gt; public class Program { ///&lt;summary&gt; ///这是构造方法 ///&lt;/summary&gt; public Program() { //.. } } 通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值 举个例子，如下实体： public class User { public string FirstName {get;set;} public string LastName {get;set;} public ShowName() { var user=new User(); user.FirstName=&quot;张&quot;; user.LastName=&quot;三&quot;; user.ShowName(); //输出 张三 } } 如果少写一个的话： static void Main(string[] args) { var user=new User(); user.LastName=&quot;三&quot;; user.ShowName(); // 输出 三 } 这就引起不是我们想要的因此构造方法这样就可以避免了: public class User { public User(string firstName,string lastName) { this.FirstName=firstName; tshi.LastName=lastName; } public string FirstName {get; private set;} public string LastName {get; private set;} public string ShowName() { return FirstName+LastName; } } 这里加入了两个参数，姓和名。因此实例化这个对象时必须传入这两个参数。 var user=new User(&quot;张&quot;,&quot;三&quot;); user.ShowName(); //输出 张三 注意：set访问修饰符设置成pbulic属性可以被外面赋值,调用时就会有问题： var user=new User(&quot;张&quot;,&quot;三&quot;); user.FirstName=&quot;李&quot;; user.LastName=&quot;四&quot;; user.ShowName();//输出 李四 本文转载自 http://dotnetstar.club/c/35]]></content>
       <tags>
-        <tag>C#</tag>
         <tag>基础</tag>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
