@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://neoz.top/git%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2019-05-24T13:54:33.966Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://neoz.top/%E5%9F%BA%E7%A1%80/</loc>
+    
+    <lastmod>2019-05-23T09:19:31.738Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://neoz.top/xUnit.NET%E5%AF%B9.NET%20Core%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</loc>
     
     <lastmod>2019-05-21T02:36:02.244Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://neoz.top/EFCore%E5%9F%BA%E7%A1%80/</loc>
     
     <lastmod>2019-05-19T09:00:44.825Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neoz.top/%E5%9F%BA%E7%A1%80/</loc>
-    
-    <lastmod>2019-05-10T23:55:46.000Z</lastmod>
     
   </url>
   
