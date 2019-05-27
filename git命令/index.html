@@ -109,14 +109,14 @@
 
 
   <meta name="description" content="CMDdir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt; test.txt echo打开 写入te">
-<meta name="keywords" content="git,基础">
+<meta name="keywords" content="基础,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git命令">
 <meta property="og:url" content="https://neoz.top/git命令/index.html">
 <meta property="og:site_name" content="Neoz">
 <meta property="og:description" content="CMDdir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt; test.txt echo打开 写入te">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-27T00:40:44.163Z">
+<meta property="og:updated_time" content="2019-05-27T00:46:22.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git命令">
 <meta name="twitter:description" content="CMDdir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt; test.txt echo打开 写入te">
@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-27 08:40:44" itemprop="dateModified" datetime="2019-05-27T08:40:44+08:00">2019-05-27</time>
+                <time title="修改时间：2019-05-27 08:46:22" itemprop="dateModified" datetime="2019-05-27T08:46:22+08:00">2019-05-27</time>
               
             
           </span>
@@ -508,7 +508,13 @@ git config --global user.name &quot;github用户名&quot;
 git config --global user.email &quot;注册github的邮箱&quot;
 git config --list 查看git已有配置信息
 </code></pre>
-<h1 id="提交到GitHub"><a href="#提交到GitHub" class="headerlink" title="提交到GitHub"></a>提交到GitHub</h1><p>git clone url 从远程克隆仓库到当前目录<br>git push 自己取的仓库名 v0.1 推送标签到远程仓库<br>git config receive.denyCurrentBranch ignore  本地克隆push报错denyCurrentBranch,在服务器设置接收配置</p>
+<h2 id="提交到GitHub"><a href="#提交到GitHub" class="headerlink" title="提交到GitHub"></a>提交到GitHub</h2><pre><code class="C#">git clone url 从远程克隆仓库到当前目录
+git push 自己取的仓库名 v0.1 推送标签到远程仓库
+git fetch 获取远程仓库里（别人提交的）未同步的更新信息，并存放到本地仓库
+git merge 将fetch得到的更新同步到工作区（分支合并）
+git pull 等价于 fetch + merge
+git config receive.denyCurrentBranch ignore  本地克隆push报错denyCurrentBranch,在服务器设置接收配置
+</code></pre>
 
       
     </div>
@@ -539,9 +545,9 @@ git config --list 查看git已有配置信息
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"> <i class="fa fa-tag"></i> git</a>
-          
             <a href="/tags/基础/" rel="tag"> <i class="fa fa-tag"></i> 基础</a>
+          
+            <a href="/tags/git/" rel="tag"> <i class="fa fa-tag"></i> git</a>
           
         </div>
       
@@ -750,7 +756,7 @@ git config --list 查看git已有配置信息
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMD"><span class="nav-number">1.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git"><span class="nav-number">2.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">2.1.</span> <span class="nav-text">配置git</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提交到GitHub"><span class="nav-number">3.</span> <span class="nav-text">提交到GitHub</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMD"><span class="nav-number">1.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git"><span class="nav-number">2.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">2.1.</span> <span class="nav-text">配置git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交到GitHub"><span class="nav-number">2.2.</span> <span class="nav-text">提交到GitHub</span></a></li></ol></li></ol></div>
             
 
           </div>
