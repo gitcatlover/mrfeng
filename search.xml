@@ -3,13 +3,13 @@
   <entry>
     <title><![CDATA[git命令]]></title>
     <url>%2Fgit%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[CMDdir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd .. 返回上一级目录 type nul &gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &gt; test.txt echo打开 写入test.txt(没有文件就创建) rd/s/q 盘符:\某个文件夹 （强制删除文件文件夹和文件夹内所有文件） del/f/s/q 盘符:\文件名 （强制删除文件，文件名必须加文件后缀名） gitgit init 在当前目录初始化一个仓库 git add test.txt 把当前目录中test.txt添加到本地git仓库(git add * 添加所有) git status 查看仓库中文件状态 git commit -m &quot;描述信息&quot; 提交到本地仓库(已提交的需要重新add一次) git commit -m &quot;描述信息&quot; -a 提交所有已更改的commit文件 git diff 在仓库目录,显示与克隆仓库的区别 git log 查看提交日志(返回324b7...是提交的版本号) git log -2 -p 最新的2条更新及改动详情 git log --since=2.weeks 最近两周以内的提交 git log test.txt 查看test.txt更新日志 git log --pretty=oneline 在一行上精简显示日志 git reset --hard HEAD^ HEAD当前版本,回滚到上一版本,上上个HEAD^^,往上100个是HEAD~100 git reset --hard 324b7 根据版本号前几位回滚 git reflog 回滚后,查看命令历史,以便回到未来 配置gitssh-keygen -t rsa -C &quot;github上注册的邮箱&quot; 创建本地ssh key ssh -T git@github.com 验证是否配置成功 git config --global user.name &quot;github用户名&quot; git config --global user.email &quot;注册github的邮箱&quot;]]></content>
+    <content type="text"><![CDATA[CMDdir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd .. 返回上一级目录 type nul &gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &gt; test.txt echo打开 写入test.txt(没有文件就创建) rd/s/q 盘符:\某个文件夹 （强制删除文件文件夹和文件夹内所有文件） del/f/s/q 盘符:\文件名 （强制删除文件，文件名必须加文件后缀名） gitgit init 在当前目录初始化一个仓库 git add test.txt 把当前目录中test.txt添加到本地git仓库(git add . 添加所有) git status 查看仓库中文件状态 git commit -m &quot;描述信息&quot; 提交到本地仓库(已提交的需要重新add一次) git commit -m &quot;描述信息&quot; -a 提交所有已更改的commit文件 git commit test.txt --amend 把文件提交的最近2条日志覆盖为最新的一条 git diff test.txt 在仓库目录,test.txt已提交和工作区的差异 git log 查看提交日志(返回324b7...是提交的版本号) git log -2 -p 最新的2条更新及改动详情 git log --since=2.weeks 最近两周以内的提交 git log test.txt 查看test.txt更新日志 git log --pretty=oneline 在一行上精简显示日志 git rm test.txt 工作区和本地都删除 git rm --cached test.txt 从已提交移除,变为untrack del test.txt 删除test.txt git reset HEAD test.txt 从暂存区撤销 git checkout --test.txt 撤销test.txt文件的更改(需要先从暂存区移除) git reset --hard 324b7 根据日志号前几位回滚 git reflog 回滚后,查看命令历史,以便回到未来 git remote -v 查看当前配置的远程仓库 git remote rename test.txt new.txt test改名为new git ls-files 查看仓库中已提交文件 git mv test.txt testNew.txt 改名为testNew.txt git tag v0.1 3d2342 按照版本号打标签 git tag -d v0.1 按版本号删除 git show v0.1 按标签号查看提交信息 git checkout v0.1 按标签号回滚,日志也回滚 配置gitssh-keygen -t rsa -C &quot;github上注册的邮箱&quot; 创建本地ssh key ssh -T git@github.com 验证是否配置成功 git config --global user.name &quot;github用户名&quot; git config --global user.email &quot;注册github的邮箱&quot; git config --list 查看git已有配置信息 提交到GitHubgit clone url 从远程克隆仓库到当前目录git push 自己取的仓库名 v0.1 推送标签到远程仓库git config receive.denyCurrentBranch ignore 本地克隆push报错denyCurrentBranch,在服务器设置接收配置]]></content>
       <categories>
         <category>git</category>
       </categories>
       <tags>
-        <tag>基础</tag>
         <tag>git</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
@@ -49,13 +49,13 @@
   <entry>
     <title><![CDATA[C#基础]]></title>
     <url>%2F%E5%9F%BA%E7%A1%80%2F</url>
-    <content type="text"><![CDATA[C#基础：mian方法可以返回int，通常是0，不是0，就发生了错误 var b = 0b1001;//前面加上0b二进制 var a = 0x4F;//16进制 Console.WriteLine(1.0 / 0.0);//∞ Console.WriteLine(-1.0 / 0.00);// -∞ Console.WriteLine(1.0/-0.00);//-∞ Console.WriteLine(-1.0/-0.0);//∞ //NaN 和 NaN不相等，使用Object.Equal()时相等。 Console.WriteLine(0.0/0.0);//NaN Console.WriteLine((1.0/0.0)-(1.0/0.0));//NaN Console.WriteLine((0.0/0.0)==double.NaN);//false Console.WriteLine(object.Equals((0.0/0.0),double.NaN));//true //double 特殊值：+0,-0,∞,-∞,NaN const 和 static readonly区别： const（静态常量）:在编译期间解析的常量必须声明就初始化(int,float,枚举,字符串。不能new)可修饰类中成员，也可修饰函数体内局部变量 static readonly（动态常量）:在运行期间解析的常量可在声明时初始化，也可在构造器中初始化只修饰类中成员 去掉集合里的重复数据`C#int[] a={1,2,3,3,,5,5,7,3,1,4};HasSet hs = new HasSet(a);foreach(var item in hs){ Console.WriteLine(item+ “ “);}//无限循环for(; ;){ }]]></content>
+    <content type="text"><![CDATA[C#基础：mian方法可以返回int，通常是0，不是0，就发生了错误 var b = 0b1001;//前面加上0b二进制 var a = 0x4F;//16进制 Console.WriteLine(1.0 / 0.0);//∞ Console.WriteLine(-1.0 / 0.00);// -∞ Console.WriteLine(1.0/-0.00);//-∞ Console.WriteLine(-1.0/-0.0);//∞ //NaN 和 NaN不相等，使用Object.Equal()时相等。 Console.WriteLine(0.0/0.0);//NaN Console.WriteLine((1.0/0.0)-(1.0/0.0));//NaN Console.WriteLine((0.0/0.0)==double.NaN);//false Console.WriteLine(object.Equals((0.0/0.0),double.NaN));//true //double 特殊值：+0,-0,∞,-∞,NaN const 和 static readonly区别： const（静态常量）:在编译期间解析的常量必须声明就初始化(int,float,枚举,字符串。不能new)可修饰类中成员，也可修饰函数体内局部变量 static readonly（动态常量）:在运行期间解析的常量可在声明时初始化，也可在构造器中初始化只修饰类中成员 去掉集合里的重复数据int[] a={1,2,3,3,,5,5,7,3,1,4}; HasSet&lt;int&gt; hs = new HasSet&lt;int&gt;(a); foreach(var item in hs) { Console.WriteLine(item+ &quot; &quot;); } //无限循环 for(; ;) { }]]></content>
       <categories>
         <category>C#</category>
       </categories>
       <tags>
-        <tag>C#</tag>
         <tag>基础</tag>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -118,8 +118,8 @@
     <url>%2F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法： public class MyClass { //.. } 它的构造方法就是： public Myclass() { //.. } 当我们实例化的时候，其实调用了构造方法。 可以在构造方法上写注释，new时看注释就知道了。 ///&lt;summary&gt; ///这是类 ///&lt;/summary&gt; public class Program { ///&lt;summary&gt; ///这是构造方法 ///&lt;/summary&gt; public Program() { //.. } } 通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值 举个例子，如下实体： public class User { public string FirstName {get;set;} public string LastName {get;set;} public ShowName() { var user=new User(); user.FirstName=&quot;张&quot;; user.LastName=&quot;三&quot;; user.ShowName(); //输出 张三 } } 如果少写一个的话： static void Main(string[] args) { var user=new User(); user.LastName=&quot;三&quot;; user.ShowName(); // 输出 三 } 这就引起不是我们想要的因此构造方法这样就可以避免了: public class User { public User(string firstName,string lastName) { this.FirstName=firstName; tshi.LastName=lastName; } public string FirstName {get; private set;} public string LastName {get; private set;} public string ShowName() { return FirstName+LastName; } } 这里加入了两个参数，姓和名。因此实例化这个对象时必须传入这两个参数。 var user=new User(&quot;张&quot;,&quot;三&quot;); user.ShowName(); //输出 张三 注意：set访问修饰符设置成pbulic属性可以被外面赋值,调用时就会有问题： var user=new User(&quot;张&quot;,&quot;三&quot;); user.FirstName=&quot;李&quot;; user.LastName=&quot;四&quot;; user.ShowName();//输出 李四 本文转载自 http://dotnetstar.club/c/35]]></content>
       <tags>
-        <tag>C#</tag>
         <tag>基础</tag>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
