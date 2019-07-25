@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="CMDdir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt; test.txt echo打开 写入te">
-<meta name="keywords" content="git,基础">
+  <meta name="description" content="CMDsc 是用来与服务控制管理器和服务进行通信 dir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt">
+<meta name="keywords" content="基础,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git命令">
 <meta property="og:url" content="https://neoz.top/git命令/index.html">
 <meta property="og:site_name" content="Neoz">
-<meta property="og:description" content="CMDdir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt; test.txt echo打开 写入te">
+<meta property="og:description" content="CMDsc 是用来与服务控制管理器和服务进行通信 dir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-28T07:03:32.026Z">
+<meta property="og:updated_time" content="2019-07-05T09:21:27.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git命令">
-<meta name="twitter:description" content="CMDdir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt; test.txt echo打开 写入te">
+<meta name="twitter:description" content="CMDsc 是用来与服务控制管理器和服务进行通信 dir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd ..  返回上一级目录 type nul &amp;gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &amp;gt">
 
 
 
@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-28 15:03:32" itemprop="dateModified" datetime="2019-05-28T15:03:32+08:00">2019-05-28</time>
+                <time title="修改时间：2019-07-05 17:21:27" itemprop="dateModified" datetime="2019-07-05T17:21:27+08:00">2019-07-05</time>
               
             
           </span>
@@ -460,7 +460,8 @@
       
 
       
-        <h1 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h1><pre><code class="C#">dir 显示当前目录中的文件
+        <h1 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h1><pre><code class="C#">sc 是用来与服务控制管理器和服务进行通信
+dir 显示当前目录中的文件
 dir /? 查看dir帮助
 set 查看所有环境变量
 cd ..  返回上一级目录
@@ -477,7 +478,6 @@ git remote show 查看仓库名
 git remote rename oldName newName  改为newName
 git add test.txt 把当前目录中test.txt添加到本地git仓库(git add . 添加所有)
 git status 查看仓库中文件状态
-git commit -m &quot;描述信息&quot; 提交到本地仓库(已提交的需要重新add一次)
 git commit -m &quot;描述信息&quot;  -a  提交所有已更改的commit文件
 git commit test.txt --amend 把文件提交的最近2条日志覆盖为最新的一条
 git diff test.txt 在仓库目录,test.txt已提交和暂存区的差异
@@ -496,7 +496,7 @@ git rm test.txt 仓库和本地都删除
 git rm --cached test.txt 从已提交移除,变为untrack
 del test.txt 删除test.txt
 git reset HEAD test.txt 从仓库撤销到暂存区
-git checkout -- test.txt 撤销test.txt文件的更改(需要先从仓库撤销)
+git checkout -- test.txt 让这个文件回到最近一次git commit或git add时的状态
 git reset --hard 324b7  根据日志号前几位回滚
 git reflog 回滚后,查看命令历史,以便回到未来
 git remote -v 查看当前配置的远程仓库
@@ -507,6 +507,7 @@ git tag v0.1 3d2342 按照版本号打标签
 git tag -d v0.1 按版本号删除
 git show v0.1 按标签号查看提交信息
 git checkout v0.1 按标签号回滚,日志也回滚
+git reset --hard b65bb6f  按照日志号回滚到未来或过去
 </code></pre>
 <h2 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h2><pre><code class="C#">ssh-keygen -t rsa -C &quot;github上注册的邮箱&quot;  创建本地ssh key
 ssh -T git@github.com  验证是否配置成功
@@ -516,10 +517,27 @@ git config --list 查看git已有配置信息
 </code></pre>
 <h2 id="提交到GitHub"><a href="#提交到GitHub" class="headerlink" title="提交到GitHub"></a>提交到GitHub</h2><pre><code class="C#">git clone url 从远程克隆仓库到当前目录
 git push 自己取的仓库名 v0.1 推送标签到远程仓库
+git push -u origin master 第一次推送到远程仓库origin的master分支
 git fetch 获取远程仓库里（别人提交的）未同步的更新信息，并存放到本地仓库
 git merge 将fetch得到的更新同步到工作区（分支合并）
 git pull 等价于 fetch + merge
-git config receive.denyCurrentBranch ignore  本地克隆push报错denyCurrentBranch,在服务器设置接收配置
+git config receive.denyCurrentBranch ignore  本地克隆push报错denyCurrentBranch,在远程设置接收配置
+git push origin feature   推送到远程origin,如果没有feature就远程创建
+</code></pre>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><pre><code class="C#"> git init --bare 创建裸仓库(远程端)
+ git remote add dev url  在url上创建远程仓库dev
+ git checkout -b rel  强制创建rel分支
+</code></pre>
+<h1 id="本地磁盘提交"><a href="#本地磁盘提交" class="headerlink" title="本地磁盘提交"></a>本地磁盘提交</h1><pre><code class="C#">1,初始化两个文件夹sample,remote
+2,两文件夹:git init
+3,sample里创建文件并commit
+4,添加远程仓库:git remote add origin c:\..\remote 
+5,remote路径下:git config receive.dencyCurrentBranch ignore
+6,sample推送:git push origin master
+</code></pre>
+<h1 id="推送到GitHub"><a href="#推送到GitHub" class="headerlink" title="推送到GitHub"></a>推送到GitHub</h1><pre><code class="C#">1,在GitHub上创建仓库,ignore选Visual Studio,添加readme.
+2,本地:git clone git@github.com:username/sample.git
+3,本地commit后:git push origin master (远程默认名origin)
 </code></pre>
 
       
@@ -551,9 +569,9 @@ git config receive.denyCurrentBranch ignore  本地克隆push报错denyCurrentBr
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"> <i class="fa fa-tag"></i> git</a>
-          
             <a href="/tags/基础/" rel="tag"> <i class="fa fa-tag"></i> 基础</a>
+          
+            <a href="/tags/git/" rel="tag"> <i class="fa fa-tag"></i> git</a>
           
         </div>
       
@@ -575,6 +593,10 @@ git config receive.denyCurrentBranch ignore  本地克隆push报错denyCurrentBr
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/11版新特性/" rel="prev" title="C#新特性">
+                C#新特性 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -655,7 +677,7 @@ git config receive.denyCurrentBranch ignore  本地克隆push报错denyCurrentBr
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -762,7 +784,7 @@ git config receive.denyCurrentBranch ignore  本地克隆push报错denyCurrentBr
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMD"><span class="nav-number">1.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git"><span class="nav-number">2.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">2.1.</span> <span class="nav-text">配置git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交到GitHub"><span class="nav-number">2.2.</span> <span class="nav-text">提交到GitHub</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMD"><span class="nav-number">1.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git"><span class="nav-number">2.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">2.1.</span> <span class="nav-text">配置git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交到GitHub"><span class="nav-number">2.2.</span> <span class="nav-text">提交到GitHub</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分支"><span class="nav-number">3.</span> <span class="nav-text">分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本地磁盘提交"><span class="nav-number">4.</span> <span class="nav-text">本地磁盘提交</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推送到GitHub"><span class="nav-number">5.</span> <span class="nav-text">推送到GitHub</span></a></li></ol></div>
             
 
           </div>
