@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ASP.NET Core IP 请求频率限制]]></title>
+    <url>%2FASP.NET%20Core%20IP%20%E8%AF%B7%E6%B1%82%E9%A2%91%E7%8E%87%E9%99%90%E5%88%B6%2F</url>
+    <content type="text"><![CDATA[限制IP请求频率 NuGet安装AspNetCoreRateLimit 修改Startup.cs public void ConfigureServices(IServiceCollection services) { // 需要从appsettings.json中加载配置 services.AddOptions(); // 存储IP计数器及配置规则 services.AddMemoryCache(); services.Configure&lt;IpRateLimitOptions&gt;(Configuration.GetSection(&quot;IpRateLimiting&quot;)); services.AddSingleton&lt;IIpPolicyStore, MemoryCacheIpPolicyStore&gt;(); services.AddSingleton&lt;IRateLimitCounterStore, MemoryCacheRateLimitCounterStore&gt;(); // 按照文档，这两个是3.x版的breaking change，要加上 services.AddSingleton&lt;IHttpContextAccessor, HttpContextAccessor&gt;(); services.AddSingleton&lt;IRateLimitConfiguration, RateLimitConfiguration&gt;(); } 使用频率限制 public void Configure(IApplicationBuilder app, IHostingEnvironment env) { // 注意顺序，放在 UseMvc 上面 app.UseIpRateLimiting(); app.UseMvc(); } 设置要限制的url [Route(&quot;/fw/{token}&quot;)] public async Task&lt;IActionResult&gt; Forward(string token) 在 appsettings.json 里加入 &quot;IpRateLimiting&quot;: { &quot;EnableEndpointRateLimiting&quot;: true, //IP限制会应用于单个配置的Endpoint上。如果是false的话，只会限制所有 * 的规则，而不能达到针对单个Endpoint配置的目的 &quot;StackBlockedRequests&quot;: false, &quot;RealIpHeader&quot;: &quot;X-Real-IP&quot;, &quot;ClientIdHeader&quot;: &quot;X-ClientId&quot;, &quot;HttpStatusCode&quot;: 429,//触发限制之后给客户端返回的HTTP状态码 &quot;GeneralRules&quot;: [ {//*: 表示任何HTTP VERB，如GET/POST，而结尾的 /* 表示需要考虑/fw后面的参数，也就是我MVC Action参数里的route参数。针对不同token，会有不同的计数 &quot;Endpoint&quot;: &quot;*:/fw/*&quot;, &quot;Period&quot;: &quot;1m&quot;, &quot;Limit&quot;: 2 } ] } 还有针对Client ID而不是IP做限制、白名单、分布式计数器存储、自定义返回内容等等]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Asp.Net Core</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[C#新特性]]></title>
     <url>%2F11%E7%89%88%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
     <content type="text"><![CDATA[1.Func&lt;int,int,int&gt; add = (x,y) =&gt; x + y; ==&gt; int add(int x,int y) =&gt;x + y; 2.object a = 5; if(a is int number) { Console.WriteLine(number);//5 } 3.只读属性: public string FullName =&gt; $&quot;{FirstName} {LastName}&quot;; 终止某个任务CancellationTokenSource source = new CancellationTokenSource(); CancellationToken token = source.Token; Task&lt;DateTime&gt; getup = Task&lt;DateTime&gt;.Run(() =&gt; //getup已经Run()起来了 { token.ThrowIfCancellationRequested(); //如果被cancel()，抛出异常 Console.WriteLine($&quot;Task-{Task.CurrentId}：起床啦！....&quot; + $&quot;ThreadId:{Thread.CurrentThread.ManagedThreadId}&quot;); return DateTime.Now; }, token); //传入token指令，确保cancel通知能够被侦听 source.Cancel(); //使用source进行cancel try { getup.Wait(); //只有在Wait()时才能捕获异常 } catch (AggregateException ae) { //使用Handle()方法进行处理 ae.Handle((e) =&gt; { Console.WriteLine(&quot;canceled?&quot;); return true; //表示已经成功处理，不需要再抛出异常 }); } static void Foo(StringBuilder sbb /* string sbb*/) { sbb.Append(&quot;test&quot;); sbb = null; } StringBuilder sb = new StringBuilder(); Foo(sb);//test win+D 显示桌面 win+S 搜索 win+E 打开文件夹 win+I 设置 win+L 锁定屏幕 win+; Emoji输入框 win+shift+s 截屏 win+ctrl+D 建虚拟桌面]]></content>
@@ -8,8 +19,8 @@
         <category>C#</category>
       </categories>
       <tags>
-        <tag>C#</tag>
         <tag>基础</tag>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -66,8 +77,8 @@
         <category>C#</category>
       </categories>
       <tags>
-        <tag>C#</tag>
         <tag>基础</tag>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -130,8 +141,8 @@
     <url>%2F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法： public class MyClass { //.. } 它的构造方法就是： public Myclass() { //.. } 当我们实例化的时候，其实调用了构造方法。 可以在构造方法上写注释，new时看注释就知道了。 ///&lt;summary&gt; ///这是类 ///&lt;/summary&gt; public class Program { ///&lt;summary&gt; ///这是构造方法 ///&lt;/summary&gt; public Program() { //.. } } 通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值 举个例子，如下实体： public class User { public string FirstName {get;set;} public string LastName {get;set;} public ShowName() { var user=new User(); user.FirstName=&quot;张&quot;; user.LastName=&quot;三&quot;; user.ShowName(); //输出 张三 } } 如果少写一个的话： static void Main(string[] args) { var user=new User(); user.LastName=&quot;三&quot;; user.ShowName(); // 输出 三 } 这就引起不是我们想要的因此构造方法这样就可以避免了: public class User { public User(string firstName,string lastName) { this.FirstName=firstName; tshi.LastName=lastName; } public string FirstName {get; private set;} public string LastName {get; private set;} public string ShowName() { return FirstName+LastName; } } 这里加入了两个参数，姓和名。因此实例化这个对象时必须传入这两个参数。 var user=new User(&quot;张&quot;,&quot;三&quot;); user.ShowName(); //输出 张三 注意：set访问修饰符设置成pbulic属性可以被外面赋值,调用时就会有问题： var user=new User(&quot;张&quot;,&quot;三&quot;); user.FirstName=&quot;李&quot;; user.LastName=&quot;四&quot;; user.ShowName();//输出 李四 本文转载自 http://dotnetstar.club/c/35]]></content>
       <tags>
-        <tag>C#</tag>
         <tag>基础</tag>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
