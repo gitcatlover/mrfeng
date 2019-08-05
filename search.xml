@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mvc自定义Filter]]></title>
+    <url>%2FMvc%E8%87%AA%E5%AE%9A%E4%B9%89Filter%2F</url>
+    <content type="text"><![CDATA[授权特性public class NeedLoginAttribute : AuthorizeAttribute { public override void OnAuthorization(AuthorizationContext filterContext) { if(IsLogin) { filterContext.Result = new RedirectResult(&quot;/Home/Login&quot;); //把登陆前想访问的网址添加到cookie string url=filterContext.HttpContext.Request.Url.ParthAndQuery; filterContext.HttpContext.Response.Cookies.Add(new HttpCookie(&quot;cookie_url&quot;),url); } } } 在&quot;/Home/Login&quot;方法里获取url,然后重定向url 自定义ModelState验证特性public class ValidationAttribute : ActionFilterAttribute { public override void OnActionExecuting(ActionExecutingContext filterContext) { ViewDataDirectionary viewData = filterContext.Controller.ViewData; if(!viewData.ModelState.IsValid) { filterContext.Controller.TempData[&quot;error_data&quot;] = viewData.ModelState; filterContext.Result = new RedirectToRouteResult(filterContext.RouteData.Values); } base.OnActionExecuting(filterContext); } } 验证错误信息重定向时需要返回: public class ImportModeStateAttribute : ActionFilterAttribute { public override void OnActionExecuting(ActionExecutingContext filterContext) { filterContext.Controller.ViewData.ModelState.Merg( (ModelStateDictionary)(filterContext.Controller.TempData[&quot;error_data&quot;])); base.OnActionExecuting(filterContext); } }]]></content>
+      <categories>
+        <category>Asp.Net Mvc</category>
+      </categories>
+      <tags>
+        <tag>Asp.Net Mvc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ASP.NET Core IP 请求频率限制]]></title>
     <url>%2FASP.NET%20Core%20IP%20%E8%AF%B7%E6%B1%82%E9%A2%91%E7%8E%87%E9%99%90%E5%88%B6%2F</url>
     <content type="text"><![CDATA[限制IP请求频率 NuGet安装AspNetCoreRateLimit 修改Startup.cs public void ConfigureServices(IServiceCollection services) { // 需要从appsettings.json中加载配置 services.AddOptions(); // 存储IP计数器及配置规则 services.AddMemoryCache(); services.Configure&lt;IpRateLimitOptions&gt;(Configuration.GetSection(&quot;IpRateLimiting&quot;)); services.AddSingleton&lt;IIpPolicyStore, MemoryCacheIpPolicyStore&gt;(); services.AddSingleton&lt;IRateLimitCounterStore, MemoryCacheRateLimitCounterStore&gt;(); // 按照文档，这两个是3.x版的breaking change，要加上 services.AddSingleton&lt;IHttpContextAccessor, HttpContextAccessor&gt;(); services.AddSingleton&lt;IRateLimitConfiguration, RateLimitConfiguration&gt;(); } 使用频率限制 public void Configure(IApplicationBuilder app, IHostingEnvironment env) { // 注意顺序，放在 UseMvc 上面 app.UseIpRateLimiting(); app.UseMvc(); } 设置要限制的url [Route(&quot;/fw/{token}&quot;)] public async Task&lt;IActionResult&gt; Forward(string token) 在 appsettings.json 里加入 &quot;IpRateLimiting&quot;: { &quot;EnableEndpointRateLimiting&quot;: true, //IP限制会应用于单个配置的Endpoint上。如果是false的话，只会限制所有 * 的规则，而不能达到针对单个Endpoint配置的目的 &quot;StackBlockedRequests&quot;: false, &quot;RealIpHeader&quot;: &quot;X-Real-IP&quot;, &quot;ClientIdHeader&quot;: &quot;X-ClientId&quot;, &quot;HttpStatusCode&quot;: 429,//触发限制之后给客户端返回的HTTP状态码 &quot;GeneralRules&quot;: [ {//*: 表示任何HTTP VERB，如GET/POST，而结尾的 /* 表示需要考虑/fw后面的参数，也就是我MVC Action参数里的route参数。针对不同token，会有不同的计数 &quot;Endpoint&quot;: &quot;*:/fw/*&quot;, &quot;Period&quot;: &quot;1m&quot;, &quot;Limit&quot;: 2 } ] } 还有针对Client ID而不是IP做限制、白名单、分布式计数器存储、自定义返回内容等等]]></content>
@@ -19,14 +30,14 @@
         <category>C#</category>
       </categories>
       <tags>
-        <tag>基础</tag>
         <tag>C#</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[git命令]]></title>
     <url>%2Fgit%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[CMDsc 是用来与服务控制管理器和服务进行通信 dir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd .. 返回上一级目录 type nul &gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &gt; test.txt echo打开 写入test.txt(没有文件就创建) rd/s/q 盘符:\某个文件夹 （强制删除文件文件夹和文件夹内所有文件） del/f/s/q 盘符:\文件名 （强制删除文件，文件名必须加文件后缀名） gitgit init 在当前目录初始化一个仓库 git remote show 查看仓库名 git remote rename oldName newName 改为newName git add test.txt 把当前目录中test.txt添加到本地git仓库(git add . 添加所有) git status 查看仓库中文件状态 git commit -m &quot;描述信息&quot; -a 提交所有已更改的commit文件 git commit test.txt --amend 把文件提交的最近2条日志覆盖为最新的一条 git diff test.txt 在仓库目录,test.txt已提交和暂存区的差异 git commit --amend 修改最近一次的commit描述 git rebase -i HEAD~3 修改commit倒数第三条 修改后执行 git rebase --continue git push -f git log 查看提交日志(返回324b7...是提交的版本号) git log -2 -p 最新的2条更新及改动详情 git log --since=2.weeks 最近两周以内的提交 git log test.txt 查看test.txt更新日志 git log --pretty=oneline 在一行上精简显示日志 git rm test.txt 仓库和本地都删除 git rm --cached test.txt 从已提交移除,变为untrack del test.txt 删除test.txt git reset HEAD test.txt 从仓库撤销到暂存区 git checkout -- test.txt 让这个文件回到最近一次git commit或git add时的状态 git reset --hard 324b7 根据日志号前几位回滚 git reflog 回滚后,查看命令历史,以便回到未来 git remote -v 查看当前配置的远程仓库 git remote rename test.txt new.txt test改名为new git ls-files 查看仓库中已提交文件 git mv test.txt testNew.txt 改名为testNew.txt git tag v0.1 3d2342 按照版本号打标签 git tag -d v0.1 按版本号删除 git show v0.1 按标签号查看提交信息 git checkout v0.1 按标签号回滚,日志也回滚 git reset --hard b65bb6f 按照日志号回滚到未来或过去 配置gitssh-keygen -t rsa -C &quot;github上注册的邮箱&quot; 创建本地ssh key ssh -T git@github.com 验证是否配置成功 git config --global user.name &quot;github用户名&quot; git config --global user.email &quot;注册github的邮箱&quot; git config --list 查看git已有配置信息 提交到GitHubgit clone url 从远程克隆仓库到当前目录 git push 自己取的仓库名 v0.1 推送标签到远程仓库 git push -u origin master 第一次推送到远程仓库origin的master分支 git fetch 获取远程仓库里（别人提交的）未同步的更新信息，并存放到本地仓库 git merge 将fetch得到的更新同步到工作区（分支合并） git pull 等价于 fetch + merge git config receive.denyCurrentBranch ignore 本地克隆push报错denyCurrentBranch,在远程设置接收配置 git push origin feature 推送到远程origin,如果没有feature就远程创建 分支 git init --bare 创建裸仓库(远程端) git remote add dev url 在url上创建远程仓库dev git checkout -b rel 强制创建rel分支 本地磁盘提交1,初始化两个文件夹sample,remote 2,两文件夹:git init 3,sample里创建文件并commit 4,添加远程仓库:git remote add origin c:\..\remote 5,remote路径下:git config receive.dencyCurrentBranch ignore 6,sample推送:git push origin master 推送到GitHub1,在GitHub上创建仓库,ignore选Visual Studio,添加readme. 2,本地:git clone git@github.com:username/sample.git 3,本地commit后:git push origin master (远程默认名origin)]]></content>
+    <content type="text"><![CDATA[CMDsc 是用来与服务控制管理器和服务进行通信 dir 显示当前目录中的文件 dir /? 查看dir帮助 set 查看所有环境变量 cd .. 返回上一级目录 type nul &gt; test.txt 创建test.txt空文件 del file_name 删除文件 notepad test.txt 打开test.txt type test.txt 读取test.txt echo &gt; test.txt echo打开 写入test.txt(没有文件就创建) rd/s/q 盘符:\某个文件夹 （强制删除文件文件夹和文件夹内所有文件） del/f/s/q 盘符:\文件名 （强制删除文件，文件名必须加文件后缀名） net user 查看本机账户情况 net share 查看共享资源 net share delname/delete 删除共享文件夹 nslookup github.com 查看github服务器ip netsh wlan show profile wifiname key=clear 查看已连接的wifi信息 gitgit init 在当前目录初始化一个仓库 git remote show 查看仓库名 git remote rename oldName newName 改为newName git add test.txt 把当前目录中test.txt添加到本地git仓库(git add . 添加所有) git status 查看仓库中文件状态 git commit -m &quot;描述信息&quot; -a 提交所有已更改的commit文件 git commit test.txt --amend 把文件提交的最近2条日志覆盖为最新的一条 git diff test.txt 在仓库目录,test.txt已提交和暂存区的差异 git commit --amend 修改最近一次的commit描述 git rebase -i HEAD~3 修改commit倒数第三条 修改后执行 git rebase --continue git push -f git log 查看提交日志(返回324b7...是提交的版本号) git log -2 -p 最新的2条更新及改动详情 git log --since=2.weeks 最近两周以内的提交 git log test.txt 查看test.txt更新日志 git log --pretty=oneline 在一行上精简显示日志 git rm test.txt 仓库和本地都删除 git rm --cached test.txt 从已提交移除,变为untrack del test.txt 删除test.txt git reset HEAD test.txt 从仓库撤销到暂存区 git checkout -- test.txt 让这个文件回到最近一次git commit或git add时的状态 git reset --hard 324b7 根据日志号前几位回滚 git reflog 回滚后,查看命令历史,以便回到未来 git remote -v 查看当前配置的远程仓库 git remote rename test.txt new.txt test改名为new git ls-files 查看仓库中已提交文件 git mv test.txt testNew.txt 改名为testNew.txt git tag v0.1 3d2342 按照版本号打标签 git tag -d v0.1 按版本号删除 git show v0.1 按标签号查看提交信息 git checkout v0.1 按标签号回滚,日志也回滚 git reset --hard b65bb6f 按照日志号回滚到未来或过去 配置gitssh-keygen -t rsa -C &quot;github上注册的邮箱&quot; 创建本地ssh key ssh -T git@github.com 验证是否配置成功 git config --global user.name &quot;github用户名&quot; git config --global user.email &quot;注册github的邮箱&quot; git config --list 查看git已有配置信息 提交到GitHubgit clone url 从远程克隆仓库到当前目录 git push 自己取的仓库名 v0.1 推送标签到远程仓库 git push -u origin master 第一次推送到远程仓库origin的master分支 git fetch 获取远程仓库里（别人提交的）未同步的更新信息，并存放到本地仓库 git merge 将fetch得到的更新同步到工作区（分支合并） git pull 等价于 fetch + merge git config receive.denyCurrentBranch ignore 本地克隆push报错denyCurrentBranch,在远程设置接收配置 git push origin feature 推送到远程origin,如果没有feature就远程创建 分支 git init --bare 创建裸仓库(远程端) git remote add dev url 在url上创建远程仓库dev git checkout -b rel 强制创建rel分支 本地磁盘提交1,初始化两个文件夹sample,remote 2,两文件夹:git init 3,sample里创建文件并commit 4,添加远程仓库:git remote add origin c:\..\remote 5,remote路径下:git config receive.dencyCurrentBranch ignore 6,sample推送:git push origin master 推送到GitHub1,在GitHub上创建仓库,ignore选Visual Studio,添加readme. 2,本地:git clone git@github.com:username/sample.git 3,本地commit后:git push origin master (远程默认名origin)]]></content>
       <categories>
         <category>git</category>
       </categories>
@@ -77,8 +88,8 @@
         <category>C#</category>
       </categories>
       <tags>
-        <tag>基础</tag>
         <tag>C#</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
@@ -141,8 +152,8 @@
     <url>%2F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[任何一个类至少会有一个构造方法，即使不写，默认会有一个公开的无参构造方法： public class MyClass { //.. } 它的构造方法就是： public Myclass() { //.. } 当我们实例化的时候，其实调用了构造方法。 可以在构造方法上写注释，new时看注释就知道了。 ///&lt;summary&gt; ///这是类 ///&lt;/summary&gt; public class Program { ///&lt;summary&gt; ///这是构造方法 ///&lt;/summary&gt; public Program() { //.. } } 通过有参数构造方法表示必填的字段，防止某些必须的字段时默认值 举个例子，如下实体： public class User { public string FirstName {get;set;} public string LastName {get;set;} public ShowName() { var user=new User(); user.FirstName=&quot;张&quot;; user.LastName=&quot;三&quot;; user.ShowName(); //输出 张三 } } 如果少写一个的话： static void Main(string[] args) { var user=new User(); user.LastName=&quot;三&quot;; user.ShowName(); // 输出 三 } 这就引起不是我们想要的因此构造方法这样就可以避免了: public class User { public User(string firstName,string lastName) { this.FirstName=firstName; tshi.LastName=lastName; } public string FirstName {get; private set;} public string LastName {get; private set;} public string ShowName() { return FirstName+LastName; } } 这里加入了两个参数，姓和名。因此实例化这个对象时必须传入这两个参数。 var user=new User(&quot;张&quot;,&quot;三&quot;); user.ShowName(); //输出 张三 注意：set访问修饰符设置成pbulic属性可以被外面赋值,调用时就会有问题： var user=new User(&quot;张&quot;,&quot;三&quot;); user.FirstName=&quot;李&quot;; user.LastName=&quot;四&quot;; user.ShowName();//输出 李四 本文转载自 http://dotnetstar.club/c/35]]></content>
       <tags>
-        <tag>基础</tag>
         <tag>C#</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
