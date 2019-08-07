@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Neoz">
 <meta property="og:description" content="客户端Response缓存： 基于Header 客户端缓存 使用ResponseCache这个Attribute   在 Startup 里设置:  services.AddMvc(options=&amp;gt; {     options.CacheProfiles.Add(&amp;quot;Default&amp;quot;,new CacheProfile     {       Duration=30//30">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-20T02:24:52.411Z">
+<meta property="og:updated_time" content="2019-08-07T02:11:19.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="缓存&amp;数据压缩&amp;token">
 <meta name="twitter:description" content="客户端Response缓存： 基于Header 客户端缓存 使用ResponseCache这个Attribute   在 Startup 里设置:  services.AddMvc(options=&amp;gt; {     options.CacheProfiles.Add(&amp;quot;Default&amp;quot;,new CacheProfile     {       Duration=30//30">
@@ -399,7 +399,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-20 10:24:52" itemprop="dateModified" datetime="2019-05-20T10:24:52+08:00">2019-05-20</time>
+                <time title="修改时间：2019-08-07 10:11:19" itemprop="dateModified" datetime="2019-08-07T10:11:19+08:00">2019-08-07</time>
               
             
           </span>
@@ -545,6 +545,9 @@ services.AddMvc(opt=&gt;
 });
 //单个方法添加token： 
 [ValidateAntiForgeryToken]
+</code></pre>
+<h1 id="ef-mvc使用缓存"><a href="#ef-mvc使用缓存" class="headerlink" title="ef mvc使用缓存"></a>ef mvc使用缓存</h1><pre><code class="C#">1,在要缓存的页面Action上:[OutputCache(Duration = 60, VaryByParam = &quot;*&quot;)]//缓存60秒,任意参数改变,缓存就改变
+2,在有部分页的主页使用了缓存,子页面也会缓存,这时要使用MvcDonutCaching包,在主页方法上[DonutOutputCache].
 </code></pre>
 
       
@@ -793,7 +796,7 @@ services.AddMvc(opt=&gt;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端Response缓存："><span class="nav-number">1.</span> <span class="nav-text">客户端Response缓存：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器端缓存"><span class="nav-number">2.</span> <span class="nav-text">服务器端缓存:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为提交数据做处理："><span class="nav-number">3.</span> <span class="nav-text">为提交数据做处理：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用数据压缩功能"><span class="nav-number">4.</span> <span class="nav-text">使用数据压缩功能:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Token防跨站伪造："><span class="nav-number">5.</span> <span class="nav-text">Token防跨站伪造：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端Response缓存："><span class="nav-number">1.</span> <span class="nav-text">客户端Response缓存：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器端缓存"><span class="nav-number">2.</span> <span class="nav-text">服务器端缓存:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为提交数据做处理："><span class="nav-number">3.</span> <span class="nav-text">为提交数据做处理：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用数据压缩功能"><span class="nav-number">4.</span> <span class="nav-text">使用数据压缩功能:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Token防跨站伪造："><span class="nav-number">5.</span> <span class="nav-text">Token防跨站伪造：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ef-mvc使用缓存"><span class="nav-number">6.</span> <span class="nav-text">ef mvc使用缓存</span></a></li></ol></div>
             
 
           </div>
