@@ -4,116 +4,16 @@
 
     
   <url>
-    <loc>https://neoz.top/%E9%9B%B6%E7%A2%8E%E9%A2%98%E7%9B%AE/</loc>
-    <lastmod>2019-08-23T03:08:46.158Z</lastmod>
-    <data>
-        <display>
-        <title>零碎题目</title>
-        <pubTime>2019-08-22T14:50:57.068Z</pubTime>
-        
-        <tag>SQL</tag>
-         
-         
-           
-             
-              <breadCrumb title="SQL" url="https://neoz.top/categories/SQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neoz.top/3.ADO%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%20%E7%99%BB%E5%BD%95demo%20%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84sql%E8%AF%AD%E5%8F%A5%20%E6%8F%92%E5%85%A5%E8%87%AA%E5%8A%A8%E8%BF%94%E5%9B%9E%E8%A1%8C%E5%8F%B7/</loc>
-    <lastmod>2019-08-22T14:50:01.498Z</lastmod>
-    <data>
-        <display>
-        <title>.ADO增删查改 登录demo 带参数的sql语句 插入自动返回行号</title>
-        <pubTime>2019-08-21T15:46:00.688Z</pubTime>
-        
-        <tag>SQL</tag>
-         
-         
-           
-             
-              <breadCrumb title="SQL" url="https://neoz.top/categories/SQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neoz.top/4.T-SQL%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2019-08-21T15:47:24.903Z</lastmod>
-    <data>
-        <display>
-        <title>4.T-SQL编程</title>
-        <pubTime>2019-08-21T15:47:08.711Z</pubTime>
-        
-        <tag>SQL</tag>
-         
-         
-           
-             
-              <breadCrumb title="SQL" url="https://neoz.top/categories/SQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neoz.top/2.%E5%88%86%E7%BB%84%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0%20%E5%90%91%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5%E5%A4%9A%E6%9D%A1%E6%95%B0%E6%8D%AE%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2019-08-21T15:44:18.548Z</lastmod>
-    <data>
-        <display>
-        <title>2.分组 类型转换函数 向表中插入多条数据 字符串函数</title>
-        <pubTime>2019-08-21T15:44:18.433Z</pubTime>
-        
-        <tag>SQL</tag>
-         
-         
-           
-             
-              <breadCrumb title="SQL" url="https://neoz.top/categories/SQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neoz.top/1.SQL%E5%A2%9E%E5%88%A0%E6%94%B9%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2019-08-21T15:40:13.228Z</lastmod>
-    <data>
-        <display>
-        <title>1，SQL增删改聚合函数</title>
-        <pubTime>2019-08-21T15:40:10.367Z</pubTime>
-        
-        <tag>SQL</tag>
-         
-         
-           
-             
-              <breadCrumb title="SQL" url="https://neoz.top/categories/SQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neoz.top/11%E7%89%88%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
+    <loc>https://neoz.top/%E7%89%88%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
     <lastmod>2019-08-18T02:11:53.221Z</lastmod>
     <data>
         <display>
         <title>C#新特性</title>
         <pubTime>2019-06-21T04:48:50.561Z</pubTime>
         
-        <tag>C#</tag>
-         
         <tag>基础</tag>
+         
+        <tag>C#</tag>
          
          
            
@@ -139,26 +39,6 @@
            
              
               <breadCrumb title="Web" url="https://neoz.top/categories/Web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neoz.top/Mvc%E8%87%AA%E5%AE%9A%E4%B9%89Filter/</loc>
-    <lastmod>2019-08-05T13:54:21.226Z</lastmod>
-    <data>
-        <display>
-        <title>Mvc自定义Filter</title>
-        <pubTime>2019-08-05T13:25:20.279Z</pubTime>
-        
-        <tag>Asp.Net Mvc</tag>
-         
-         
-           
-             
-              <breadCrumb title="Asp.Net Mvc" url="https://neoz.top/categories/Asp-Net-Mvc/"/>
           
         </display>
     </data>
@@ -215,9 +95,9 @@
         <title>C#基础</title>
         <pubTime>2019-05-14T14:58:15.544Z</pubTime>
         
-        <tag>C#</tag>
-         
         <tag>基础</tag>
+         
+        <tag>C#</tag>
          
          
            
@@ -278,26 +158,6 @@
         <display>
         <title>日志&Model验证</title>
         <pubTime>2019-05-14T14:58:15.547Z</pubTime>
-        
-        <tag>Asp.Net Core</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web" url="https://neoz.top/categories/Web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neoz.top/Controller%E8%BF%94%E5%9B%9EView/</loc>
-    <lastmod>2019-04-22T08:16:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>Controller返回View</title>
-        <pubTime>2019-05-14T14:58:15.535Z</pubTime>
         
         <tag>Asp.Net Core</tag>
          
@@ -379,9 +239,9 @@
         <title>构造函数使用</title>
         <pubTime>2018-06-27T08:44:10.000Z</pubTime>
         
-        <tag>C#</tag>
-         
         <tag>基础</tag>
+         
+        <tag>C#</tag>
          
          
            
